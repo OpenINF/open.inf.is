@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-next-line first-line-heading -->
 <a href="https://open.inf.is">
   <img
-    src="https://open.inf.is/assets/img/svg/logogram-color.svg"
+    src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/logogram-color.svg?sanitize=true"
     alt="OpenINF logo"
     title="OpenINF"
     align="right"
@@ -15,10 +15,6 @@
 ## `open.inf.is`
 
 > The OpenINF website and other static resources
-
-<br />
-
-[!['Netlify Status: Dynamic'][netlify-badge--dynamimg]][netlify-badge-url]
 
 </div>
 
@@ -131,12 +127,6 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
   https://img.shields.io/badge/scheme-evolutionary-blue.svg
 [project-status-badge--shields]:
   https://img.shields.io/badge/status-under%20construction-yellow.svg
-[netlify-badge-url]:
-  https://app.netlify.com/sites/open-inf-is/deploys?branch=live
-  'Netlify Status: Dynamic'
-[netlify-badge--dynamimg]:
-  https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status?branch=live
-  'Netlify Status: Dynamic'
 [open an issue]: https://github.com/OpenINF/openinf.github.io/issues
 
 <!-- LINK LABEL DEFINITIONS - END -->
