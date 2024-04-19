@@ -1,6 +1,7 @@
 scripts:
   compile:
-    site: node build/tasks/compile/compile-site.mjs
+    site: node build/tasks/compile/compile-site.mjs # TODO
+    siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mjs
   verify:
     all: for i in build/tasks/verify/*.mjs; do node "$i"; done
     css: node build/tasks/verify/verify-css.mjs
