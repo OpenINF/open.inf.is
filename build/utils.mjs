@@ -16,7 +16,7 @@ import { globby } from 'globby';
 // Helpers
 // -----------------------------------------------------------------------------
 
-export const getPathsFromGlobs = async (filePathGlobsArray) => {
+export const pathsFromGlobs = async (filePathGlobsArray) => {
   return await globby(filePathGlobsArray);
 };
 

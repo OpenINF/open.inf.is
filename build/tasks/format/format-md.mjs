@@ -6,9 +6,9 @@
  */
 
 import { execute } from '@yarnpkg/shell';
-import { getPathsfromGlobs } from '../utils.mjs';
+import { pathsfromGlobs } from '../../utils.mjs';
 
-const MarkdownFiles = await getPathsfromGlobs([
+const MarkdownFiles = await pathsfromGlobs([
   '**.md',
   '!_site/',
   '!node_modules/',

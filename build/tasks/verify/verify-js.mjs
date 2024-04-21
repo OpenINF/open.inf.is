@@ -6,9 +6,9 @@
  */
 
 import { execute } from '@yarnpkg/shell';
-import { getPathsfromGlobs } from '../utils.mjs';
+import { globby } from 'globby';
 
-const JSFiles = await getPathsfromGlobs([
+const JSFiles = await globby([
   '**.mjs',
   '!_site/',
   '!node_modules/',
