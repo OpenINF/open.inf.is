@@ -1,25 +1,12 @@
-'use strict';
-// * The contents of this file should work on as many versions of Node.js as
-// * possible. Hence, it _cannot_ use any >ES5 syntax or features. Other files,
-// * which may use >=ES2015 syntax, should only be loaded asynchronously _after_
-// * successful completion of this version check.
-//------------------------------------------------------------------------------
-
 /**
- * @file Task Utilities.
- * @author The OpenINF Authors and friends
- * @license MIT
- * @module {CJSModule} build/tasks/common
+ * @file Build Task Utilities.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {ES6Module} build/tasks/utils
  */
 
 // -----------------------------------------------------------------------------
 // Requirements
-// -----------------------------------------------------------------------------
-// * Since this module supports a pre-installation task, neither dependencies
-// * nor devDependencies specified in our package manifest are installed yet.
-// * Therefore, realistically, only the following modules would be available.
-// * - core modules built into the currently active version (?) of Node.js
-// * - dependencies of the globally-installed version (?) of the `npm` package
 // -----------------------------------------------------------------------------
 
 var assert = require('assert');
