@@ -35,14 +35,14 @@
   // ---------------------------------------------------------------------------
 
   "[javascript][json][json5][typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
   },
 
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
 
   "[liquid]": {
@@ -62,18 +62,19 @@
       "source.fixAll.markdownlint": "explicit"
     },
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
     // "editor.defaultFormatter": "unifiedjs.vscode-remark"
     // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
 
   "[svg]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
 
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
 
   // Render vertical rulers after a certain number of monospace characters.
