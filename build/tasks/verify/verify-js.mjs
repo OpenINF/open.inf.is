@@ -6,9 +6,9 @@
  */
 
 import { execute } from '@yarnpkg/shell';
-import { filePathGlobs } from '../utils.mjs';
+import { getPathsfromGlobs } from '../utils.mjs';
 
-const JSFiles = await filePathGlobs([
+const JSFiles = await getPathsfromGlobs([
   '**.mjs',
   '!_site/',
   '!node_modules/',

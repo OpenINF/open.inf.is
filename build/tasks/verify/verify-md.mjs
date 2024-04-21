@@ -6,9 +6,9 @@
  */
 
 import { execute } from '@yarnpkg/shell';
-import { globby } from 'globby';
+import { getPathsfromGlobs } from '../utils.mjs';
 
-const MarkdownFiles = await globby([
+const MarkdownFiles = await getPathsfromGlobs([
   '**.md',
   '!_site/',
   '!node_modules/',
@@ -18,10 +18,7 @@ const MarkdownFiles = await globby([
 
 let exitCode = 0;
 const scripts = [
-  // Validate style of JS/TS code blocks within Markdown files.
-  `eslint ${MarkdownFiles.join(' ')}`,
-  // Validate style of Markdown within Markdown files.
-  `prettier --check ${MarkdownFiles.join(' ')}`,
+  `biome lint ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
   `remark -f ${MarkdownFiles.join(' ')}`,
   `cspell check ${MarkdownFiles.join(' ')}`,
