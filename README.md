@@ -34,27 +34,6 @@ Thanks!
 
 <br />
 
-Short-term non-goals:
-
-- Use an environment different from `github-pages`
-
-Long-term non-goals:
-
-- Use `github-pages` or their static site generator
-
-<br />
-
-The rationale for this approach is that we would like our website code suspended
-on this framework initially. It has a good form and structure, yet, due to the
-underlying technologies (`scss` & `html+liquid`) being of limited power,
-evolution becomes necessary while retaining the same codebase layout.
-
-<br /><br />
-
----
-
-<br />
-
 ### Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to
