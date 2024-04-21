@@ -16,7 +16,7 @@ const JSFiles = await globby([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome format ${JSFiles.join(' ')}`];
+const scripts = [`biome format --write ${JSFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {
