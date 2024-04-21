@@ -1,11 +1,29 @@
-import yarnpkgShell from '@yarnpkg/shell';
+/**
+ * @file Format JavaScript files to adhere to checkable style guidelines.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {type ES6Module} build/tasks/format/format-js
+ */
 
-let code = 0;
-const scripts = ['npx eslint --ext=.js,.cjs,.mjs . --fix'];
+import { execute } from '@yarnpkg/shell';
+import { globby } from 'globby';
 
+const JSFiles = await globby([
+  '**.mjs',
+  '!_site/',
+  '!node_modules/',
+  '!vendor/',
+]);
 
+let exitCode = 0;
+const scripts = [`biome format ${JSFiles.join(' ')}`];
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+for (const element of scripts) {
+  try {
+    exitCode = await execute(element);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+
+  if (exitCode !== 0) process.exitCode = exitCode;
+}
