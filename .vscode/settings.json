@@ -63,7 +63,6 @@
     },
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "biomejs.biome"
-    // "editor.defaultFormatter": "esbenp.prettier-vscode"
     // "editor.defaultFormatter": "unifiedjs.vscode-remark"
     // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
@@ -186,9 +185,6 @@
     "tsconfig.*.json": "jsonc",
     "tsconfig.json": "jsonc",
     ".ecrc.json": "json",
-    ".eslintrc.json": "jsonc",
-    ".prettierrc.json": "json5",
-    ".prettierrc.json5": "json5",
     ".deepsource.toml": "toml",
     ".renovaterc.json5": "json5",
     ".snyk": "yaml",
@@ -280,23 +276,6 @@
   // need not be re-specified in this file: files.encoding, files.eol,
   // files.insertFinalNewline, and files.trimTrailingWhitespace.
   "editorconfig.generateAuto": false,
-
-  // ESLint (ESLint is a separate extension)
-  /////////////////////////////////////////////
-
-  // Whether the extension contributes a lint task to lint a whole workspace
-  // folder.
-  "eslint.lintTask.enable": true,
-  "eslint.format.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "json",
-    "json5",
-    "jsonc",
-    "markdown",
-    "typescript"
-  ],
-  "eslint.workingDirectories": ["./"],
 
   // Remote
   /////////////////////////////////////////////

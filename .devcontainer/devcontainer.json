@@ -53,10 +53,9 @@
   // Use 'forwardPorts' to make a list of ports inside the container available
   // locally.
   "forwardPorts": [
-    // Jekyll server
-    4000, // Live reload server
-    35729, // OpenSSH server
-    2222
+    4000, // Jekyll server
+    35729, // Live reload server
+    2222 // OpenSSH server
   ],
   "overrideCommand": false,
 
