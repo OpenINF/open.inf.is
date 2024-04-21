@@ -92,13 +92,13 @@ function isLintFreePjson(pjsonPath) {
   // Using this object is an alternative to using `.npmpackagejsonlintrc`.
   // https://npmpackagejsonlint.org/docs/en/api
   const npmPackageJsonLintOptions = {
-    cwd: PATHS.projectRoot,                      // The current working diretory for all file operations.
+    cwd: PATHS.projectRoot, // The current working diretory for all file operations.
     // packageJsonObject: pjsonObject,           // A package.json object. This must be provided or a patterns should be provided.
-    patterns: [pjsonPath],                       // An array of glob patterns used to find package.json files. This must be provided or a `packageJsonObject` should be provided.
+    patterns: [pjsonPath], // An array of glob patterns used to find package.json files. This must be provided or a `packageJsonObject` should be provided.
     // packageJsonFilePath: pjsonPath,           // If providing a package.json object, this option allows a file path to be assigned to it.
-    config: npmPackageJsonLintRc,                // Allows for a config object to be passed as an object via code instead of a file.
+    config: npmPackageJsonLintRc, // Allows for a config object to be passed as an object via code instead of a file.
     // configFile: './.npmpackagejsonlintrc.js', // Relative path to a configuration file. If provided, the config in the file will be used and npm-package-json-lint will not traverse the file system to find other config files.
-    quiet: false,                                // A flag indicating whether to suppress warnings.
+    quiet: false, // A flag indicating whether to suppress warnings.
     // ignorePath:                               // File path to an ignore file.
   };
   const npmPackageJsonLint = new NpmPackageJsonLint(npmPackageJsonLintOptions);
