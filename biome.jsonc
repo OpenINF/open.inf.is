@@ -15,7 +15,7 @@
       "**/vendor/",
       "**/package.json",
       "**/pnpm-lock.yaml"
-    ],
+    ]
   },
   "organizeImports": { "enabled": true },
   "linter": { "enabled": true, "rules": { "recommended": true } },
@@ -32,12 +32,17 @@
       "attributePosition": "auto"
     }
   },
+  "json": {
+    "parser": {
+      "allowComments": true
+    }
+  },
   "overrides": [
     { "include": ["*.svg"] },
     { "include": ["*.json"] },
     {
       "include": ["*.html"],
-      "javascript": { "formatter": { "quoteStyle": "double" } },
+      "javascript": { "formatter": { "quoteStyle": "double" } }
     },
     { "include": ["*.md"] }
   ]
