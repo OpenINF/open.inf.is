@@ -2,7 +2,7 @@
  * @file Common Build Task Utilities.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {ES6Module} build/tasks/utils
+ * @module {type ES6Module} build/tasks/utils
  */
 
 // -----------------------------------------------------------------------------
