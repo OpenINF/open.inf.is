@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-json
  */
 
-import { execute, glob } from '@openinf/site/build/utils';
+import { exec, glob } from '@openinf/portal/build/utils';
 
 const JSONFiles = await glob([
   '**.json',
@@ -21,7 +21,7 @@ const scripts = [`biome format --write ${JSONFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {
-    exitCode = await execute(element);
+    exitCode = await exec(element);
   } catch (p) {
     exitCode = p.exitCode;
   }

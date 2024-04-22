@@ -2,10 +2,10 @@
  * @file Verify Markdown files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {ES6Module} build/tasks/verify/verify-md
+ * @module {type ES6Module} build/tasks/verify/verify-md
  */
 
-import { execute, glob } from '@openinf/site/build/utils';
+import { exec, glob } from '@openinf/portal/build/utils';
 
 const MarkdownFiles = await glob([
   '**.md',
@@ -25,7 +25,7 @@ const scripts = [
 
 for (const element of scripts) {
   try {
-    exitCode = await execute(element);
+    exitCode = await exec(element);
   } catch (p) {
     exitCode = p.exitCode;
   }

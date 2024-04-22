@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-md
  */
 
-import { execute, glob } from '@openinf/site/build/utils';
+import { exec, glob } from '@openinf/portal/build/utils';
 
 const MarkdownFiles = await glob([
   '**.md',
@@ -23,7 +23,7 @@ const scripts = [
 
 for await (const element of scripts) {
   try {
-    exitCode = await execute(element);
+    exitCode = await exec(element);
   } catch (p) {
     exitCode = p.exitCode;
   }

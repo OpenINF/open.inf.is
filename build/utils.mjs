@@ -9,17 +9,17 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-export { execute } from '@yarnpkg/shell';
+export { execute as exec } from '@yarnpkg/shell';
 export { globby as glob } from 'globby';
 
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 
-// export const pathsFromGlobs = async (filePathGlobsArray) => {
-//   return await globby(filePathGlobsArray);
-// };
+// TODO
 
 // -----------------------------------------------------------------------------
 // Main
 // -----------------------------------------------------------------------------
+
+// TODO
