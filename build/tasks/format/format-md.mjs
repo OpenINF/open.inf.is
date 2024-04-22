@@ -21,7 +21,7 @@ const scripts = [
   `markdownlint-cli2 --fix ${MarkdownFiles.join(' ')}`,
 ];
 
-for await (const element of scripts) {
+for (const element of scripts) {
   try {
     exitCode = await exec(element);
   } catch (p) {
