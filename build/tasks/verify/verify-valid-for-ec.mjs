@@ -2,7 +2,7 @@
  * @file Verify files are valid for EditorConfig checker.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/verify/verify-js
+ * @module {type ES6Module} build/tasks/verify/verify-valid-for-ec
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';

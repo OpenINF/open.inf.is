@@ -17,7 +17,7 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `biome format ${MarkdownFiles.join(' ')}`,
+  `biome check --apply-unsafe ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 --fix ${MarkdownFiles.join(' ')}`,
 ];
 

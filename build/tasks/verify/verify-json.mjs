@@ -17,7 +17,7 @@ const JSONFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome lint ${JSONFiles.join(' ')}`];
+const scripts = [`biome check ${JSONFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {

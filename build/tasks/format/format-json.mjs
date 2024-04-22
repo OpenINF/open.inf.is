@@ -1,5 +1,5 @@
 /**
- * @file Verify JSON files are valid & adhere to checkable style guidelines.
+ * @file Format JSON files to adhere to autofixable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @module {type ES6Module} build/tasks/format/format-json
@@ -17,7 +17,7 @@ const JSONFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome format --write ${JSONFiles.join(' ')}`];
+const scripts = [`biome check --apply-unsafe ${JSONFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {
