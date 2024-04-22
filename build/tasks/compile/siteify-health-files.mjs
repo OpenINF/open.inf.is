@@ -83,41 +83,41 @@ function siteifyFile(file, frontmatterOverrides = {}) {
 // Main
 // -----------------------------------------------------------------------------
 
-for (file of healthFiles) {
-  switch (file) {
+for (const value of healthFiles) {
+  switch (value) {
     case 'CODE_OF_CONDUCT.md':
-      siteifyFile(file, {
+      siteifyFile(value, {
         title: 'OpenINF Code of Conduct',
         editable: false,
       });
       break;
     case 'CONTRIBUTING.md':
-      siteifyFile(file, {
+      siteifyFile(value, {
         title: 'Contributing to OpenINF',
         permalink: '/docs/dev/internals/contributing/',
       });
       break;
     case 'SECURITY.md': {
-      siteifyFile(file, {
+      siteifyFile(value, {
         title: 'OpenINF Security Policies',
         permalink: '/docs/dev/internals/security/',
       });
       break;
     }
     case 'SUPPORT.md':
-      siteifyFile(file, {
+      siteifyFile(value, {
         title: 'Support • Frequently Asked Questions',
         permalink: '/docs/dev/faq/support/',
         redirect_from: '/docs/dev/faq/help/',
       });
       break;
     case 'VISION.md':
-      siteifyFile(file, {
+      siteifyFile(value, {
         title: 'OpenINF Vision',
         permalink: '/about/vision/',
       });
       break;
     default:
-      siteifyFile(file);
+      siteifyFile(value);
   }
 }
