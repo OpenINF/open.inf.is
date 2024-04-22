@@ -9,13 +9,13 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import { accessSync, writeFileSync } from 'fs';
-import { createRequire } from 'module';
-import { debuglog } from 'util';
+import { strict as assert } from 'node:assert';
+import { accessSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { dirname as pathDirname, resolve as pathResolve } from 'node:path';
+import { debuglog } from 'node:util';
+import { npmPackageJsonLintRc, pjsonKeyOrder } from 'loader339/config';
 import { PATHS } from 'loader339/constants';
-import { pjsonKeyOrder, npmPackageJsonLintRc } from 'loader339/config';
-import { resolve as pathResolve, dirname as pathDirname } from 'path';
-import { strict as assert } from 'assert';
 
 const require = createRequire(import.meta.url);
 
@@ -105,7 +105,7 @@ function isLintFreePjson(pjsonPath) {
 
   //* 02. Run linter.
   let response = npmPackageJsonLint.lint();
-  log.debug(`NpmPackageJsonLint.lint complete`);
+  log.debug('NpmPackageJsonLint.lint complete');
 
   //* 03. Output result.
   // The package has a beautiful reporter in CLI, but it's missing from lib API.
@@ -120,16 +120,15 @@ function isLintFreePjson(pjsonPath) {
   //* 04. Determine and return result.
   let problemCount = 0;
   // Assumed as iterable in the case of globs existing in `patterns` config key.
-  response = response instanceof Array ? response : [response];
+  response = Array.isArray(response) ? response : [response];
   response.forEach((element) => {
     problemCount += element.errorCount + element.warningCount;
   });
 
   if (problemCount > 0) {
     return false;
-  } else {
-    return true;
   }
+  return true;
 }
 
 /**
@@ -165,7 +164,7 @@ function formatPjson(pjsonPath) {
 
 export default (() => {
   // First, we need an array containing the root pjson since it's a given.
-  let pjsonPathsToCheck = [PATHS.manifest];
+  const pjsonPathsToCheck = [PATHS.manifest];
 
   // Next, we check if the root pjson has defined a `workspaces` key.
   const rootPjsonObject = require(PATHS.manifest);

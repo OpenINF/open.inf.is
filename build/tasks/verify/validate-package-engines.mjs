@@ -27,8 +27,8 @@
 // * - our low-level task utils module (compatible with Node.js 6+)
 //------------------------------------------------------------------------------
 
-var NODE_DISTRIBUTIONS_URL = 'https://nodejs.org/dist/index.json';
-var assert = require('assert');
+const NODE_DISTRIBUTIONS_URL = 'https://nodejs.org/dist/index.json';
+const assert = require('node:assert');
 
 // Ensure we've received a package manifest filepath as the first argument.
 assert(
@@ -36,8 +36,8 @@ assert(
   'Unmet expectation: filepath argument passed for package.json to be parsed'
 );
 
-var packageFilePath = process.argv[2];
-var taskUtil = require('./util.js');
+const packageFilePath = process.argv[2];
+const taskUtil = require('./util.js');
 
 // * We are intentionally checking engines are satisfied prior to
 // * installation because we aren't yet sure system-level constraint
@@ -45,9 +45,9 @@ var taskUtil = require('./util.js');
 // * tools in our Node.js toolchain are satisfied. As such, we don't
 // * use them until we are sure...
 
-var rootNpmRequire = taskUtil.rootNpmRequire;
-var semver = rootNpmRequire('semver');
-var colors = rootNpmRequire('ansicolors');
+const rootNpmRequire = taskUtil.rootNpmRequire;
+const semver = rootNpmRequire('semver');
+const colors = rootNpmRequire('ansicolors');
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -58,18 +58,18 @@ var colors = rootNpmRequire('ansicolors');
  * @param {!string} toolCommand
  * @return {!Object}
  */
-var checkVersion = (exports.checkVersion = function (toolCommand) {
-  var activeVersion;
+const checkVersion = (exports.checkVersion = (toolCommand) => {
+  let activeVersion;
   try {
-    activeVersion = taskUtil.getTrimmedStdout(toolCommand + ' --version');
+    activeVersion = taskUtil.getTrimmedStdout(`${toolCommand} --version`);
   } catch (err) {
     assert(false, err);
   }
   activeVersion = semver.clean(activeVersion);
-  var supportedSemVer =
+  const supportedSemVer =
     taskUtil.getPackageEngines(packageFilePath)[toolCommand];
   // Accommodate for labels and build metadata appearing as SemVer extensions.
-  var activeVersionNoPrerelease = activeVersion.replace(/-.*$/, '');
+  const activeVersionNoPrerelease = activeVersion.replace(/-.*$/, '');
   return {
     command: toolCommand,
     required: supportedSemVer,
@@ -83,20 +83,17 @@ var checkVersion = (exports.checkVersion = function (toolCommand) {
  * @param {!Object} result
  * @return {!number}
  */
-var processVersionCheckResults = function (result) {
+const processVersionCheckResults = (result) => {
   if (!result.supported) {
     console.error(
-      colors.red('× ' + result.command + '\t v' + semver.clean(result.version))
+      colors.red(`× ${result.command}\t v${semver.clean(result.version)}`)
     );
     return 1;
-  } else {
-    console.error(
-      colors.green(
-        '○ ' + result.command + '\t v' + semver.clean(result.version)
-      )
-    );
-    return 0;
   }
+  console.error(
+    colors.green(`○ ${result.command}\t v${semver.clean(result.version)}`)
+  );
+  return 0;
 };
 
 /**
@@ -104,18 +101,18 @@ var processVersionCheckResults = function (result) {
  * @param {!Object} error
  * @param {!string} version
  */
-var errorCallback = function (error, version) {
+const errorCallback = (error, version) => {
   if (!version) {
     console.error(colors.red(error));
   } else {
-    var newlineMarker = require('os').EOL;
+    const newlineMarker = require('node:os').EOL;
     console.error(
       newlineMarker +
         colors.yellow('WARNING: Detected missing/unsupported tool!')
     );
-    var errorMessage = [
+    const errorMessage = [
       colors.yellow('Remedy this by running ') +
-        colors.cyan('"nvm install ' + semver.clean(version) + '"') +
+        colors.cyan(`"nvm install ${semver.clean(version)}"`) +
         colors.yellow(' or'),
       colors.yellow('see ') +
         colors.cyan('https://nodejs.org/en/download/package-manager') +
@@ -133,12 +130,12 @@ var errorCallback = function (error, version) {
 exports.default = (() => {
   console.error('   Main Engines');
   console.error('------------------');
-  var packageEngines = taskUtil.getPackageEngines(packageFilePath);
-  var versionCheckResults = Object.keys(packageEngines).map((value) => {
+  const packageEngines = taskUtil.getPackageEngines(packageFilePath);
+  const versionCheckResults = Object.keys(packageEngines).map((value) => {
     return checkVersion(value);
   });
-  var supportedSemVer = taskUtil.getPackageEngines(packageFilePath).node;
-  var redResults = versionCheckResults.map((value) => {
+  const supportedSemVer = taskUtil.getPackageEngines(packageFilePath).node;
+  const redResults = versionCheckResults.map((value) => {
     return processVersionCheckResults(value);
   });
   if (redResults.includes(1)) {

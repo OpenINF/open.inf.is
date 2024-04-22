@@ -9,10 +9,10 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import nodePath from 'node:path';
-import strip from 'strip-comments';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import nodePath from 'node:path';
 import { dump as yDump } from 'js-yaml';
+import strip from 'strip-comments';
 
 const healthFiles = [
   'CODE_OF_CONDUCT.md',
