@@ -7,7 +7,7 @@
 
 import { execute, glob } from '@openinf/site/build/utils';
 
-const MarkdownFiles = await pathsfromGlobs([
+const MarkdownFiles = await glob([
   '**.md',
   '!_site/',
   '!node_modules/',
