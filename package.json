@@ -1,5 +1,5 @@
 {
-  "name": "@openinf/open.inf.is",
+  "name": "@openinf/site",
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF website, other static resources, and more static electricity",
@@ -7,6 +7,9 @@
   "engines": {
     "node": "20.12.2",
     "pnpm": "9.0.4"
+  },
+  "exports": {
+    "./build/utils": "./build/utils.mjs"
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/open.inf.is",

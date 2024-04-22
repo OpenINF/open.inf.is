@@ -5,15 +5,9 @@
  * @module {type ES6Module} build/tasks/format/format-js
  */
 
-import { execute } from '@yarnpkg/shell';
-import { globby } from 'globby';
+import { execute, glob } from '@openinf/site/build/utils';
 
-const JSFiles = await globby([
-  '**.mjs',
-  '!_site/',
-  '!node_modules/',
-  '!vendor/',
-]);
+const JSFiles = await glob(['**.mjs', '!_site/', '!node_modules/', '!vendor/']);
 
 let exitCode = 0;
 const scripts = [`biome format --write ${JSFiles.join(' ')}`];

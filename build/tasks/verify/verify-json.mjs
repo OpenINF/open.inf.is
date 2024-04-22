@@ -2,19 +2,29 @@
  * @file Verify JSON files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/verify/verify-js
+ * @module {type ES6Module} build/tasks/verify/verify-json
  */
 
-import yarnpkgShell from '@yarnpkg/shell';
-import { pathsfromGlobs } from '../../utils.mjs';
+import { execute, glob } from '@openinf/site/build/utils';
 
-let code = 0;
-const scripts = [
-  'npx eslint --ext=.json .', // validate
-  'npx prettier -c {*.json,.*.json}', // style-check
-];
+const JSONFiles = await glob([
+  '**.json',
+  '**.json5',
+  '**.jsonc',
+  '!_site/',
+  '!node_modules/',
+  '!vendor/',
+]);
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+let exitCode = 0;
+const scripts = [`biome lint ${JSONFiles.join(' ')}`];
+
+for (const element of scripts) {
+  try {
+    exitCode = await execute(element);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+
+  if (exitCode !== 0) process.exitCode = exitCode;
+}

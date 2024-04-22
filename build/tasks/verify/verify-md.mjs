@@ -2,11 +2,10 @@
  * @file Verify Markdown files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {ES6Module} build/tasks/verify/verify-md.mjs
+ * @module {ES6Module} build/tasks/verify/verify-md
  */
 
-import { execute } from '@yarnpkg/shell';
-import { pathsfromGlobs } from '../../utils.mjs';
+import { execute, glob } from '@openinf/site/build/utils';
 
 const MarkdownFiles = await pathsfromGlobs([
   '**.md',

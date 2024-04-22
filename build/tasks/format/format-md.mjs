@@ -5,8 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-md
  */
 
-import { execute } from '@yarnpkg/shell';
-import { pathsfromGlobs } from '../../utils.mjs';
+import { execute, glob } from '@openinf/site/build/utils';
 
 const MarkdownFiles = await pathsfromGlobs([
   '**.md',
