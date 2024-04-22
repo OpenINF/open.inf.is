@@ -17,7 +17,7 @@ const SVGFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `biome check --apply ${SVGFiles.join(' ')}`,
+  `biome check ${SVGFiles.join(' ')}`,
   `java -jar ${vnu} --svg ${SVGFiles.join(' ')}`,
 ];
 
