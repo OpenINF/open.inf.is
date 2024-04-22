@@ -17,7 +17,7 @@ const JSONFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check --apply-unsafe ${JSONFiles.join(' ')}`];
+const scripts = [`biome check --apply ${JSONFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {

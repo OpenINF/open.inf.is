@@ -10,7 +10,7 @@ import { exec, glob } from '@openinf/portal/build/utils';
 const JSFiles = await glob(['**.mjs', '!_site/', '!node_modules/', '!vendor/']);
 
 let exitCode = 0;
-const scripts = [`biome check --apply-unsafe ${JSFiles.join(' ')}`];
+const scripts = [`biome check --apply ${JSFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {

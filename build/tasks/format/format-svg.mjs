@@ -15,7 +15,7 @@ const SVGFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check --apply-unsafe ${SVGFiles.join(' ')}`];
+const scripts = [`biome check --apply ${SVGFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {
