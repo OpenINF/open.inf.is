@@ -11,8 +11,10 @@
   "editor.codeLens": true,
   "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
-
-  "json.maxItemsComputed": 10000,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
 
   // Insert spaces when pressing `Tab`. This setting is overridden based on the
   // file contents when `editor.detectIndentation` is on.
@@ -26,7 +28,6 @@
   // ---------------------------------------------------------------------------
 
   "[liquid]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "sissel.shopify-liquid"
   },
 
