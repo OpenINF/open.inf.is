@@ -27,3 +27,4 @@ scripts:
     ts: node build/tasks/format/format-ts.mjs
     yaml: node build/tasks/format/format-yaml.mjs
   test: nps verify.all
+  build: nps compile.buildPortal
