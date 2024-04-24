@@ -111,7 +111,7 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
 <!-- LINK LABEL DEFINITIONS - START -->
 
 [Roadmap]: https://github.com/OpenINF/openinf.github.io/issues 'Roadmap'
-[Development]: ./collections/_docs/development.md 'Development'
+[Development]: ./collections/_docs/README.md 'Development'
 [Issue Tracker]:
   https://github.com/OpenINF/openinf.github.io/issues
   'Issue Tracker'

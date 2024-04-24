@@ -67,6 +67,12 @@ To autofix all files, run this from the project workspace root:
 nps format.all
 ```
 
+To build for production (or preview), run this from the project workspace root:
+
+```console
+nps build
+```
+
 <br /><br />
 
 ### License
