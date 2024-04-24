@@ -14,7 +14,7 @@
   "homepage": "open.inf.is",
   "repository": "OpenINF/open.inf.is",
   "scripts": {
-    "build": "nps build",
+    "build": "nps compile.buildPortal",
     "start": "nps",
     "test": "nps test"
   },
