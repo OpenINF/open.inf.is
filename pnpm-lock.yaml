@@ -101,6 +101,9 @@ importers:
       postcss-html:
         specifier: 1.6.0
         version: 1.6.0
+      prettier:
+        specifier: 3.2.5
+        version: 3.2.5
       remark:
         specifier: 15.0.1
         version: 15.0.1
