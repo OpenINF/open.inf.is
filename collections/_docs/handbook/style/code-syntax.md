@@ -116,7 +116,7 @@ choices, separated from each other by pipes.
   In this example, choose either file1 or file2.
 
 - Recommended:
-  `{**--source** cloud-source **--source-url** source-url | **--bucket** bucket [**--source** local-source]}`
+  `{**--source** cloud-source **--source-url** source-url | **--bucket** bucket`
 
   In this example, there are also two options:
 
