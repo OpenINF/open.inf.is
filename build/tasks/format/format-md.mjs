@@ -17,7 +17,7 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `dprint fmt ${MarkdownFiles.join(' ')}`,
+  `prettier --write ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 --fix ${MarkdownFiles.join(' ')}`,
 ];
 

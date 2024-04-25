@@ -17,7 +17,7 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `dprint check ${MarkdownFiles.join(' ')}`,
+  `prettier --check ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
   `remark -f ${MarkdownFiles.join(' ')}`,
   `cspell check ${MarkdownFiles.join(' ')}`,
