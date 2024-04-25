@@ -8,7 +8,7 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 
 const DockerfileFiles = await glob([
-  '**/Dockerfile',
+  '.devcontainer/**/Dockerfile',
   '!_site/',
   '!node_modules/',
   '!vendor/',
