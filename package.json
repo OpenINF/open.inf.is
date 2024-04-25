@@ -34,6 +34,7 @@
     "cross-spawn": "7.0.3",
     "cspell": "8.7.0",
     "dictionary-en": "4.0.0",
+    "dprint": "0.45.1",
     "editorconfig-checker": "5.1.5",
     "env-cmd": "10.1.0",
     "globby": "14.0.1",
