@@ -20,7 +20,7 @@ Gpg4win
 gpgconf
 gpgsm
 gpgtunnel
-𝖦𝗋𝗂𝗆𝖾𝗌
+Grimes
 https
 Irulen
 macOS
@@ -35,6 +35,8 @@ pinentry
 PowerShell
 psusan
 rubocop
+screencap
+sdcard
 SDK
 Servagility
 siteify
