@@ -116,6 +116,7 @@ choices, separated from each other by pipes.
   In this example, choose either file1 or file2.
 
 <!-- TODO: fix to use simpler example -->
+
 - Recommended:
   `{**--source** cloud-source **--source-url** source-url | **--bucket** bucket`
 

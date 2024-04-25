@@ -20,7 +20,7 @@ const scripts = [
   `prettier --check ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
   `remark -f ${MarkdownFiles.join(' ')}`,
-  `cspell check ${MarkdownFiles.join(' ')}`,
+  `cspell lint ${MarkdownFiles.join(' ')}`,
 ];
 
 for (const element of scripts) {
