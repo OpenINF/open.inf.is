@@ -20,11 +20,11 @@
 
 <br />
 
-The high-level goal of open.inf.is is to build and maintain a current website
-serving content and assets. Although this site is still in its infancy, it’s
-intended to support separation of concerns. We are constantly working to improve
-this repository, so please feel free to [contribute](#contributing) if you
-notice any omissions or errors.
+The high-level goal of this project is to build and maintain a community portal
+that serves content and assets. Although this portal is still in its infancy, it
+is intended to support a separation of concerns between hosting our community
+website, SDK documentation, and more. We are constantly working to improve this
+work, so please feel free to contribute if you notice any omissions or errors.
 
 Thanks!
 
