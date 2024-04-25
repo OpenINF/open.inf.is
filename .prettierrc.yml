@@ -10,23 +10,19 @@ tabWidth: 2
 trailingComma: es5
 useTabs: false
 overrides:
-- files:
-  - "*.svg"
-  options:
-    parser: html
-- files:
-  - "*.json"
-  options:
-    parser: json
-- files:
-  - "*.html"
-  options:
-    bracketSameLine: true
-    parser: html
-    singleAttributePerLine: false
-    singleQuote: false
-- files:
-  - "*.md"
-  options:
-    parser: markdown
-    proseWrap: always
+  - files:
+      - '*.svg'
+    options:
+      parser: html
+  - files:
+      - '*.html'
+    options:
+      bracketSameLine: true
+      parser: html
+      singleAttributePerLine: false
+      singleQuote: false
+  - files:
+      - '*.md'
+    options:
+      parser: markdown
+      proseWrap: always
