@@ -14,7 +14,7 @@
 
 ## `open.inf.is`
 
-> The OpenINF website and other static resources
+> ⚡🐋 The OpenINF portal, other static resources, and more static electricity
 
 </div>
 
