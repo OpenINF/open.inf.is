@@ -2,6 +2,43 @@ li {
   list-style-type: none;
 }
 
+.list-detail {
+  display: table-cell;
+  width: 100%;
+  padding: 25px 0;
+
+  p {
+    margin: 0;
+  }
+
+  .title-block {
+    position: relative;
+    padding-right: 15px;
+
+    .title {
+      display: block;
+      margin: 0 0 0.4em;
+      font-size: 24px;
+      font-weight: 400;
+
+      @include media-breakpoint-down(md) {
+        font-size: 18px;
+        line-height: 1.3333333333;
+      }
+    }
+
+    .sub-title {
+      display: block;
+      font-size: $font-size-h5;
+    }
+
+    @include media-breakpoint-down(sm) {
+      // -1
+      padding-right: 40px;
+    }
+  }
+}
+
 .list-wrap {
   color: inherit;
 }
@@ -92,43 +129,6 @@ li {
 
     @include media-breakpoint-up(sm) {
       padding: 32px 0;
-    }
-  }
-}
-
-.list-detail {
-  display: table-cell;
-  width: 100%;
-  padding: 25px 0;
-
-  p {
-    margin: 0;
-  }
-
-  .title-block {
-    position: relative;
-    padding-right: 15px;
-
-    .title {
-      display: block;
-      margin: 0 0 0.4em;
-      font-size: 24px;
-      font-weight: 400;
-
-      @include media-breakpoint-down(md) {
-        font-size: 18px;
-        line-height: 1.3333333333;
-      }
-    }
-
-    .sub-title {
-      display: block;
-      font-size: $font-size-h5;
-    }
-
-    @include media-breakpoint-down(sm) {
-      // -1
-      padding-right: 40px;
     }
   }
 }
