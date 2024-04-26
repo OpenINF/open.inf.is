@@ -3,7 +3,7 @@
   text-align: center;
 
   span {
-    font-size: .625rem;
+    font-size: 0.625rem;
     color: $footer-foreground;
     display: block;
 
@@ -20,7 +20,7 @@
 
     path,
     polygon,
-    rect, {
+    rect {
       fill: $footer-foreground;
     }
   }

@@ -3,7 +3,6 @@
  */
 
 .discrete-sessions {
-
   ._bubble {
     background-size: 90%;
     // background-color: #ba160c;
@@ -36,11 +35,11 @@
   width: 100%;
   height: 0;
   padding-bottom: 60%; // acts as fluid height
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   overflow: hidden;
 
   @include media-breakpoint-up(sm) {
-    padding-bottom: 21rem
+    padding-bottom: 21rem;
   }
 
   @include media-breakpoint-up(md) {
@@ -57,7 +56,7 @@
 }
 
 .banner-img {
-  position:absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
   // background-position: center center;

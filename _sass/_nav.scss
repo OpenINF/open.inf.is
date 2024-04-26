@@ -48,11 +48,12 @@ amp-sidebar nav {
     }
   }
 
-  a, span {
+  a,
+  span {
     display: block;
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
     font-size: $font-size-base;
     color: $gray-dark;
-    letter-spacing: .04em;
+    letter-spacing: 0.04em;
   }
 }
