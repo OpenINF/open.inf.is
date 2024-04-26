@@ -19,9 +19,6 @@
     "test": "nps test"
   },
   "devDependencies": {
-    "@babel/core": "7.24.4",
-    "@babel/plugin-syntax-jsx": "7.24.1",
-    "@babel/preset-env": "7.24.4",
     "@biomejs/biome": "1.7.1",
     "@devcontainers/cli": "0.59.1",
     "@openinf/gh-file-importer": "2.0.1",
@@ -36,7 +33,6 @@
     "dictionary-en": "4.0.0",
     "dprint": "0.45.1",
     "editorconfig-checker": "5.1.5",
-    "env-cmd": "10.1.0",
     "globby": "14.0.1",
     "markdown-it": "14.1.0",
     "markdown-it-abbr": "2.0.0",
