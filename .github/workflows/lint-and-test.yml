@@ -36,10 +36,12 @@ jobs:
         id: filter
         with:
           filters: |
+            css:
+              - '**/*.css'
+            dockerfile:
+              - '**/Dockerfile'
             html:
               - '**/*.html'
-            md:
-              - '**/*.md'
             js:
               - '**/*.js'
               - '**/*.mjs'
@@ -47,8 +49,8 @@ jobs:
               - '**/*.json'
               - '**/*.json5'
               - '**/*.jsonc'
-            css:
-              - '**/*.css'
+            md:
+              - '**/*.md'
             svg:
               - '**/*.svg'
             toml:
@@ -63,6 +65,10 @@ jobs:
       - name: Verify CSS
         if: ${{ steps.filter.outputs.css == 'true' }}
         run: nps verify.css
+
+      - name: Verify Dockerfile
+        if: ${{ steps.filter.outputs.dockerfile == 'true' }}
+        run: nps verify.dockerfile
 
       - name: Verify HTML
         if: ${{ steps.filter.outputs.html == 'true' }}
