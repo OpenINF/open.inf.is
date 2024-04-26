@@ -10,9 +10,7 @@
     href="https://open.inf.is/assets/img/svg/logo.svg"
     integrity="sha512-MhRWk6SE+DkE7TeYTf7QigVZjcVTEUJKwbMR60ZYS9xcA1k3eGkRRTM4xklozGDEYJjbQVx9ZwN/7+itkV5fQw=="
     crossorigin="anonymous" />
-  <meta
-    name="description"
-    content="{{ site.description }}" />
+  <meta name="description" content="{{ site.description }}" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -82,13 +80,16 @@
     {% endif %}
   </style>
   {% if page.custom_css %}{% for stylesheet_hotlink in page.custom_css -%}
-    <link rel="stylesheet" href="{{ stylesheet_hotlink }}">
+  <link rel="stylesheet" href="{{ stylesheet_hotlink }}" />
   {%- endfor %}{% endif %}
-  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="telephone=no" />
   {% if post.status == 'unpublished' or page.status == 'unpublished' %}
-  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="robots" content="noindex, nofollow, noarchive" />
   {% endif %}
-  <title>{% if page.permalink == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
+  <title>
+    {% if page.permalink == '/' %}{{ site.title }}{% else %}{{ page.title }}
+    &middot; {{ site.title }}{% endif %}
+  </title>
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
   {% if page.permalink == '/' %}
   <script type="application/ld+json">
