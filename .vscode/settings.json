@@ -35,7 +35,7 @@
   },
 
   "[liquid]": {
-    "editor.defaultFormatter": "sissel.shopify-liquid"
+    "editor.defaultFormatter": "Shopify.theme-check-vscode"
   },
 
   "[markdown]": {
