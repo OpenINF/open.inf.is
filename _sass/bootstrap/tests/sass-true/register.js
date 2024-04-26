@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('node:path');
 
 const runnerPath = path.join(__dirname, 'runner').replace(/\\/g, '/');
