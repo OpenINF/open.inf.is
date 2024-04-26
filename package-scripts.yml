@@ -7,6 +7,7 @@ scripts:
     css: node build/tasks/verify/verify-css.mjs
     dockerfile: node build/tasks/verify/verify-dockerfile.mjs
     html: node build/tasks/verify/verify-html.mjs
+    htmlValidForVNU: node build/tasks/verify/verify-html-valid-for-vnu.mjs
     js: node build/tasks/verify/verify-js.mjs
     json: node build/tasks/verify/verify-json.mjs
     md: node build/tasks/verify/verify-md.mjs
