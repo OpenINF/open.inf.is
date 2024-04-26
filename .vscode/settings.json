@@ -27,6 +27,13 @@
 
   // ---------------------------------------------------------------------------
 
+  "[dockerfile]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.dprint": "explicit"
+    },
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+
   "[liquid]": {
     "editor.defaultFormatter": "sissel.shopify-liquid"
   },
