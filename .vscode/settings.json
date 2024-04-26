@@ -47,7 +47,7 @@
     // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
 
-  "[liquid-scss]": {
+  "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
@@ -177,7 +177,7 @@
     ".ecrc.json": "json",
     ".deepsource.toml": "toml",
     ".renovaterc.json5": "json5",
-    ".scss": "liquid-scss",
+    ".scss": "scss",
     ".snyk": "yaml",
     ".html": "liquid"
   },
