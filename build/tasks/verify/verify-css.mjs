@@ -9,8 +9,8 @@ import { exec, glob } from '@openinf/portal/build/utils';
 
 const SCSSFiles = await glob([
   '**.scss',
-  '!_sass/bootstrap/**',
-  '!_sass/bourbon/**',
+  '!_sass/bootstrap/',
+  '!_sass/bourbon/',
   '!_site/',
   '!node_modules/',
   '!vendor/',
