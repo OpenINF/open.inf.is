@@ -64,7 +64,8 @@ li {
       height: 56px;
     }
 
-    @include media-breakpoint-down(sm) { // -1
+    @include media-breakpoint-down(sm) {
+      // -1
       margin-top: 14px;
       margin-right: 16px;
       width: 56px;
@@ -112,7 +113,7 @@ li {
       display: block;
       font-weight: 400;
       font-size: 24px;
-      margin: 0 0 .4em;
+      margin: 0 0 0.4em;
 
       @include media-breakpoint-down(md) {
         font-size: 18px;
@@ -125,7 +126,8 @@ li {
       font-size: $font-size-h5;
     }
 
-    @include media-breakpoint-down(sm) { // -1
+    @include media-breakpoint-down(sm) {
+      // -1
       padding-right: 40px;
     }
   }
