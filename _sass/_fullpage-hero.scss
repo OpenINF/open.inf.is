@@ -22,7 +22,7 @@
 
   span {
     background: linear-gradient(to bottom, transparent 50%, $brand-primary 50%);
-    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 }
 
@@ -52,7 +52,11 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  background: linear-gradient(to top, rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 65%) 0%,
+    rgb(0 0 0 / 0%) 100%
+  );
 
   &:hover,
   &:focus {
@@ -65,5 +69,5 @@
   display: block;
   margin-top: -1rem;
   font-size: 2.25rem;
-  content: "▾";
+  content: '▾';
 }
