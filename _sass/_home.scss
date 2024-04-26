@@ -6,6 +6,20 @@
 @import 'syntax';
 @import 'highlight';
 
+.features {
+  list-style: none;
+
+  li {
+    padding-left: 1ch;
+    text-indent: -3ch;
+  }
+
+  li::before {
+    padding-right: 1ch;
+    content: '❖';
+  }
+}
+
 .social {
   padding: 0;
   margin: 1.25rem 0 0;
@@ -45,20 +59,6 @@
         }
       }
     }
-  }
-}
-
-.features {
-  list-style: none;
-
-  li {
-    padding-left: 1ch;
-    text-indent: -3ch;
-  }
-
-  li::before {
-    padding-right: 1ch;
-    content: '❖';
   }
 }
 

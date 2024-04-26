@@ -1,7 +1,16 @@
 .fullpage-hero {
+  color: #fff;
   position: relative;
   margin: 0;
   background-color: $brand-foreground;
+
+  amp-img {
+    margin-bottom: 0;
+  }
+
+  amp-img > img {
+    object-fit: cover;
+  }
 
   figcaption {
     position: absolute;
@@ -10,6 +19,10 @@
     left: 0;
   }
 }
+
+// .navbar ~ .fullpage-hero {
+//   margin-top: -60px;
+// }
 
 .fullpage-hero-heading {
   padding-bottom: 2rem;
@@ -23,22 +36,6 @@
   span {
     background: linear-gradient(to bottom, transparent 50%, $brand-primary 50%);
     box-decoration-break: clone;
-  }
-}
-
-// .navbar ~ .fullpage-hero {
-//   margin-top: -60px;
-// }
-
-.fullpage-hero {
-  color: #fff;
-
-  amp-img {
-    margin-bottom: 0;
-  }
-
-  amp-img > img {
-    object-fit: cover;
   }
 }
 

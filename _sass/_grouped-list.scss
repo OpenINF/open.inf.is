@@ -7,15 +7,15 @@ li {
 }
 
 .list-wrap,
-.list-wrap.-is-search .list-detail {
+.list-wrap.is-search .list-detail {
   display: block;
 }
 
-.list-wrap.-is-link {
+.list-wrap.is-link {
   text-decoration: none;
 
   .list-detail {
-    ._title {
+    .title {
       color: $body-color;
       text-decoration: none;
       transition: 125ms color ease-in;
@@ -23,14 +23,14 @@ li {
   }
 }
 
-.list-wrap.-is-link:hover {
-  ._title {
+.list-wrap.is-link:hover {
+  .title {
     color: $brand-primary;
     text-decoration: none;
     transition: 125ms color ease-in;
   }
 
-  ._summary {
+  .summary {
     color: $body-color;
     text-decoration: none;
   }
@@ -44,7 +44,7 @@ li {
     padding-top: 16px;
   }
 
-  ._bubble {
+  .bubble {
     width: 72px;
     height: 72px;
     background-repeat: no-repeat;
@@ -105,11 +105,11 @@ li {
     margin: 0;
   }
 
-  ._title-block {
+  .title-block {
     position: relative;
     padding-right: 15px;
 
-    ._title {
+    .title {
       display: block;
       margin: 0 0 0.4em;
       font-size: 24px;
@@ -121,7 +121,7 @@ li {
       }
     }
 
-    ._sub-title {
+    .sub-title {
       display: block;
       font-size: $font-size-h5;
     }
