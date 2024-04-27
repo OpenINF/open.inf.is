@@ -87,6 +87,7 @@
     "retext-spell": "6.1.0",
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
+    "sass": "1.75.0",
     "strip-comments": "2.0.1",
     "stylelint": "16.4.0",
     "stylelint-config-recess-order": "5.0.1",
