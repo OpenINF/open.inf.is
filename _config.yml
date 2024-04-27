@@ -71,11 +71,6 @@ defaults:
       breadcrumbs: true
       body_classes:
         - hide-butterbar
-sass:
-  sass_dir: _sass
-  style: compressed
-  load_paths:
-    - _includes/assets/scss
 
 # Exclude from processing
 exclude:
