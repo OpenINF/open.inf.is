@@ -68,6 +68,9 @@ importers:
       gulp-sourcemaps:
         specifier: 3.0.0
         version: 3.0.0
+      gulplog:
+        specifier: 2.2.0
+        version: 2.2.0
       markdown-it:
         specifier: 14.1.0
         version: 14.1.0
