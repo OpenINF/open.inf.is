@@ -1,0 +1,9 @@
+!.*
+.git/
+_sass/bootstrap/
+_sass/bourbon/
+_site/
+node_modules/
+vendor/
+package.json
+pnpm-lock.yaml

@@ -1,9 +1,28 @@
-import yarnpkgShell from '@yarnpkg/shell';
+/**
+ * @file Format HTML file partials to adhere to autofixable style guidelines.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {type ES6Module} build/tasks/format/format-html
+ */
 
-let code = 0;
-const scripts = ['npx prettier --write "*.html"'];
+import { exec, glob } from '@openinf/portal/build/utils';
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+const HTMLFiles = await glob([
+  '**.html',
+  '!_site/',
+  '!node_modules/',
+  '!vendor/',
+]);
+
+let exitCode = 0;
+const scripts = [`prettier --write ${HTMLFiles.join(' ')}`];
+
+for (const element of scripts) {
+  try {
+    exitCode = await exec(element);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+
+  if (exitCode !== 0) process.exitCode = exitCode;
+}

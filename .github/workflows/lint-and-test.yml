@@ -15,7 +15,7 @@ jobs:
         with:
           node-version-file: 'package.json'
       - name: Set up Ruby runtime
-        uses: ruby/setup-ruby@70da3bbf44ac06db1b0547ce2acc9380a5270d1e # v1.175.0
+        uses: ruby/setup-ruby@1198b074305f9356bd56dd4b311757cc0dab2f1c # v1.175.1
       - name: Install
         run: |
           corepack enable
@@ -36,21 +36,25 @@ jobs:
         id: filter
         with:
           filters: |
+            css:
+              - '**/*.css'
+            dockerfile:
+              - '**/Dockerfile'
             html:
               - '**/*.html'
-            md:
-              - '**/*.md'
             js:
               - '**/*.js'
               - '**/*.mjs'
             json:
               - '**/*.json'
-              - '**/*.jsonc'
               - '**/*.json5'
-            css:
-              - '**/*.css'
+              - '**/*.jsonc'
+            md:
+              - '**/*.md'
             svg:
               - '**/*.svg'
+            toml:
+              - '**/*.toml'
             yaml:
               - '**/*.yml'
               - '**/*.yaml'
@@ -61,6 +65,10 @@ jobs:
       - name: Verify CSS
         if: ${{ steps.filter.outputs.css == 'true' }}
         run: nps verify.css
+
+      - name: Verify Dockerfile
+        if: ${{ steps.filter.outputs.dockerfile == 'true' }}
+        run: nps verify.dockerfile
 
       - name: Verify HTML
         if: ${{ steps.filter.outputs.html == 'true' }}
@@ -81,6 +89,10 @@ jobs:
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}
         run: nps verify.svg
+
+      - name: Verify TOML
+        if: ${{ steps.filter.outputs.toml == 'true' }}
+        run: nps verify.toml
 
       - name: Verify YAML
         if: ${{ steps.filter.outputs.yaml == 'true' }}

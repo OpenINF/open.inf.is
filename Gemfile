@@ -13,13 +13,9 @@ group :jekyll_plugins do
   gem 'jekyll-relative-links'
   gem 'jekyll-sitemap'
   gem 'jekyll-seo-tag'
-  # gem 'jekyll-asset-path', git: 'https://github.com/OpenINF/openinf-jekyll-asset-path-plugin'
-  # gem 'jekyll-assets', git: 'https://github.com/envygeeks/jekyll-assets'
   # gem 'jekyll-paginate-v2'
   # gem 'jekyll-auto-authors'
 end
-
-gem 'yaml-lint'
 
 gem 'webrick'
 

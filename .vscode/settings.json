@@ -27,8 +27,32 @@
 
   // ---------------------------------------------------------------------------
 
+  "[dockerfile]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.dprint": "explicit"
+    },
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+
   "[liquid]": {
-    "editor.defaultFormatter": "sissel.shopify-liquid"
+    "editor.defaultFormatter": "Shopify.theme-check-vscode"
+  },
+
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "unifiedjs.vscode-remark"
+    // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[svg]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "[toml]": {
@@ -36,6 +60,10 @@
       "source.fixAll.dprint": "explicit"
     },
     "editor.defaultFormatter": "dprint.dprint"
+  },
+
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // Render vertical rulers after a certain number of monospace characters.
@@ -149,8 +177,9 @@
     ".ecrc.json": "json",
     ".deepsource.toml": "toml",
     ".renovaterc.json5": "json5",
+    "*.scss": "scss",
     ".snyk": "yaml",
-    ".html": "liquid"
+    "*.html": "liquid"
   },
 
   // Configure glob patterns for excluding files and folders. For example, the
