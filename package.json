@@ -39,6 +39,7 @@
     "gulp-dart-sass": "1.1.0",
     "gulp-load-plugins": "2.0.8",
     "gulp-sourcemaps": "3.0.0",
+    "gulplog": "2.2.0",
     "markdown-it": "14.1.0",
     "markdown-it-abbr": "2.0.0",
     "markdown-it-anchor": "8.6.7",
