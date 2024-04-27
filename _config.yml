@@ -16,8 +16,6 @@ plugins:
   - jekyll-relative-links
   - jekyll-sitemap
   - jekyll-seo-tag
-  # - jekyll-asset-path
-  # - jekyll-assets
 
 ## Content collections
 # @see https://jekyllrb.com/docs/collections
