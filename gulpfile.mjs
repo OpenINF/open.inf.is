@@ -42,17 +42,9 @@ gulp.task('serve', ['sass'], () => {
   gulp.watch(PATHS.htmlPattern).on('change', reload);
 });
 
-// Compile sass into CSS
-gulp.task('sass', () =>
-  gulp
-    .src(PATHS.sassPattern)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(PATHS.jekyllCssFiles))
-    .pipe(reload({ stream: true }))
-);
-
 /**
  * Sass task for live injecting into all browsers.
+ * Compiles sass into CSS.
  */
 gulp.task('sass', () =>
   gulp
@@ -78,11 +70,6 @@ gulp.task('sass', () =>
 
 // const dev = gulp.series(clean, scripts, serve, watch);
 // export default dev;
-
-// gulp.task('default', (cb) => {
-//   logger.info('GULP THIS!');
-//   cb();
-// });
 
 // Process styles, add vendor-prefixes, minify, then
 // output the file to the appropriate location.
@@ -198,15 +185,6 @@ gulp.task('build:jekyll:local', () => {
     .pipe(run('bundle exec jekyll build'))
     .on('error', gutil.log);
 });
-
-// Special tasks for building and reloading BrowserSync
-gulp.task(
-  'build:jekyll:watch',
-  gulp.series('build:jekyll:local', (callback) => {
-    browserSync.reload();
-    callback();
-  })
-);
 
 // Special tasks for building and reloading BrowserSync
 gulp.task(
