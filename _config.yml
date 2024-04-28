@@ -26,12 +26,14 @@ collections:
   docs:
     permalink: :collection/:path
     output: true
+  pages:
+    output: true
   posts:
     permalink: news/:year/:month/:day/:title
     output: true
 defaults:
   - scope:
-      path: ''
+      path: _pages
       type: pages
     values:
       ##
