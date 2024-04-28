@@ -36,7 +36,7 @@ const server = browserSync.create();
  * @param {*} done Callback to signal completion.
  */
 function reload(done) {
-  server.reload({ stream: true });
+  server.reload(/*{ stream: true }*/);
   done();
 }
 
@@ -67,7 +67,7 @@ function serve(done) {
  * Compiles sass into CSS.
  */
 gulp.task(
-  'sass',
+  'build:styles:main',
   (done) =>
     gulp
       .src(`${PATHS.sassFiles}/main.scss`)
@@ -103,40 +103,40 @@ gulp.task(
 
 // Process styles, add vendor-prefixes, minify, then
 // output the file to the appropriate location.
-gulp.task('build:styles:main', () => {
-  return (
-    gulp
-      .src(`${PATHS.sassFiles}/main.scss`)
-      .pipe(sass().on('error', logger.error))
-      // .pipe(postcss([autoprefixer(), cssnano()]))
-      .pipe(gulp.dest(PATHS.jekyllCssFiles))
-      // .pipe(gulp.dest(PATHS.siteCssFiles))
-      // .pipe(browserSync.stream())
-      .on('error', logger)
-  );
-});
+// gulp.task('build:styles:main', () => {
+//   return (
+//     gulp
+//       .src(`${PATHS.sassFiles}/main.scss`)
+//       .pipe(sass().on('error', logger.error))
+//       // .pipe(postcss([autoprefixer(), cssnano()]))
+//       .pipe(gulp.dest(PATHS.jekyllCssFiles))
+//       // .pipe(gulp.dest(PATHS.siteCssFiles))
+//       // .pipe(browserSync.stream())
+//       .on('error', logger)
+//   );
+// });
 
 // Create and process critical CSS file to be included in head
-gulp.task('build:styles:critical', () => {
-  return gulp
-    .src(`${PATHS.sassFiles}/critical.scss`)
-    .pipe(
-      sass({
-        outputStyle: 'compressed',
-        trace: true,
-        loadPath: [PATHS.sassFiles],
-      }).on('error', sass.logError)
-    )
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(gulp.dest('_includes'))
-    .pipe(browserSync.stream())
-    .on('error', logger);
-});
+// gulp.task('build:styles:critical', () => {
+//   return gulp
+//     .src(`${PATHS.sassFiles}/critical.scss`)
+//     .pipe(
+//       sass({
+//         outputStyle: 'compressed',
+//         trace: true,
+//         loadPath: [PATHS.sassFiles],
+//       }).on('error', sass.logError)
+//     )
+//     .pipe(postcss([autoprefixer(), cssnano()]))
+//     .pipe(gulp.dest('_includes'))
+//     .pipe(browserSync.stream());
+//   // .on('error', logger);
+// });
 
 // Build all styles
 gulp.task(
   'build:styles',
-  gulp.series(['build:styles:main', 'build:styles:critical'])
+  gulp.series(['build:styles:main' /*, 'build:styles:critical'*/])
 );
 
 // Concatenate and uglify global JS files and output the result to the
@@ -210,7 +210,7 @@ gulp.task('build:jekyll:local', () => {
 gulp.task(
   'build:jekyll:watch',
   gulp.series('build:jekyll:local', (callback) => {
-    reload();
+    // reload();
     callback();
   })
 );
@@ -251,21 +251,21 @@ gulp.task(
     gulp.watch(PATHS.jekyllPostFilesGlob, gulp.series('build:jekyll:watch'));
 
     // Watch drafts if --drafts flag was passed
-    if (module.exports.drafts) {
-      gulp.watch(PATHS.jekyllDraftFilesGlob, gulp.series('build:jekyll:watch'));
-    }
+    // if (module.exports.drafts) {
+    //   gulp.watch(PATHS.jekyllDraftFilesGlob, gulp.series('build:jekyll:watch'));
+    // }
 
     // Watch html and markdown files
-    gulp.watch(
-      [PATHS.htmlPattern, PATHS.markdownPattern, '!_site/**/*.*'],
-      gulp.series('build:jekyll:watch')
-    );
+    // gulp.watch(
+    //   [PATHS.htmlPattern, PATHS.markdownPattern, '!_site/**/*.*'],
+    //   gulp.series('build:jekyll:watch')
+    // );
 
     // Watch RSS feed
-    gulp.watch('feed.xml', gulp.series('build:jekyll:watch'));
+    // gulp.watch('feed.xml', gulp.series('build:jekyll:watch'));
 
     // Watch data files
-    gulp.watch(PATHS.dataPattern, gulp.series('build:jekyll:watch'));
+    // gulp.watch(PATHS.dataPattern, gulp.series('build:jekyll:watch'));
 
     callback();
   })
