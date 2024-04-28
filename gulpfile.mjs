@@ -9,6 +9,7 @@
  * @module {type ES6Module} gulpfile
  */
 
+import { PATHS } from '@openinf/portal/build/constants';
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import sass from 'gulp-dart-sass';
@@ -19,12 +20,6 @@ const server = browserSync.create();
 // const reload = browserSync.reload;
 // var through     = require("through2");
 
-const src = {
-  scss: '_sass/*.scss',
-  css: 'assets/css',
-  html: '*.html',
-};
-
 function reload(done) {
   server.reload();
   done();
@@ -33,7 +28,7 @@ function reload(done) {
 function serve(done) {
   server.init({
     server: {
-      baseDir: './_site/',
+      baseDir: PATHS.siteDir,
     },
   });
   done();
@@ -43,53 +38,46 @@ function serve(done) {
 gulp.task('serve', ['sass'], () => {
   serve(done);
 
-  gulp.watch(src.scss, ['sass']);
-  gulp.watch(src.html).on('change', reload);
+  gulp.watch(PATHS.sassPattern, ['sass']);
+  gulp.watch(PATHS.htmlPattern).on('change', reload);
 });
 
 // Compile sass into CSS
 gulp.task('sass', () =>
   gulp
-    .src(src.scss)
+    .src(PATHS.sassPattern)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(src.css))
+    .pipe(gulp.dest(PATHS.jekyllCssFiles))
     .pipe(reload({ stream: true }))
 );
 
 /**
- * Sass task for live injecting into all browsers
+ * Sass task for live injecting into all browsers.
  */
 gulp.task('sass', () =>
   gulp
-    .src('./app/scss/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./app/css'))
-    .pipe(reload({ stream: true }))
-);
-
-gulp.task('sass', () =>
-  gulp
-    .src('./sass/**/*.scss')
+    .src(PATHS.sassPattern)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest(PATHS.jekyllCssFiles))
+    .pipe(reload({ stream: true }))
 );
 
 /**
  * Serve and watch the html files for changes
  */
-gulp.task('default', () => {
-  browserSync({ server: './app' });
+// gulp.task('default', () => {
+//   browserSync({ server: './app' });
 
-  gulp.watch('./app/scss/*.scss', ['sass']);
-  gulp.watch('./app/*.html', ['html-watch']);
-});
+//   gulp.watch('./app/scss/*.scss', ['sass']);
+//   gulp.watch('./app/*.html', ['html-watch']);
+// });
 
-const watch = () => gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
+// const watch = () => gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
 
-const dev = gulp.series(clean, scripts, serve, watch);
-export default dev;
+// const dev = gulp.series(clean, scripts, serve, watch);
+// export default dev;
 
 // gulp.task('default', (cb) => {
 //   logger.info('GULP THIS!');
