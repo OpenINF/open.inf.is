@@ -30,6 +30,10 @@ function serve(done) {
     server: {
       baseDir: PATHS.siteDir,
     },
+    ghostMode: false, // Toggle to mirror clicks, reloads etc (performance)
+    logFileChanges: true,
+    logLevel: 'debug',
+    open: true, // Toggle to auto-open page when starting
   });
   done();
 }
@@ -217,13 +221,7 @@ gulp.task(
 gulp.task(
   'serve',
   gulp.series('build', (callback) => {
-    browserSync.init({
-      server: PATHS.siteDir,
-      ghostMode: false, // Toggle to mirror clicks, reloads etc (performance)
-      logFileChanges: true,
-      logLevel: 'debug',
-      open: true, // Toggle to auto-open page when starting
-    });
+    serve(callback);
 
     gulp.watch('_config.yml', gulp.series('build:jekyll:watch'));
     // Watch .scss files and pipe changes to browserSync
