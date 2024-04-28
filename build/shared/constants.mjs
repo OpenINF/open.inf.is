@@ -9,13 +9,15 @@ const PATHS = {};
 
 // Directory locations.
 PATHS.assetsDir = '_assets/'; // The files Gulp will handle.
-PATHS.dataDir = '_data';
 PATHS.jekyllDir = ''; // The files Jekyll will handle.
 PATHS.jekyllAssetsDir = 'assets/'; // The asset files Jekyll will handle.
+PATHS.jekyllCollectionsDir = 'collections/'; // The collections files Jekyll will handle.
 PATHS.siteDir = '_site/'; // The resulting static site.
 PATHS.siteAssetsDir = '_site/assets/'; // The resulting static site's assets.
 
 // Folder naming conventions.
+PATHS.dataFolder = '_data';
+PATHS.draftsFolder = '_drafts';
 PATHS.postFolder = '_posts';
 PATHS.fontFolder = 'fonts';
 PATHS.imageFolder = 'img';
@@ -29,7 +31,10 @@ PATHS.imageFiles = PATHS.assetsDir + PATHS.imageFolder;
 PATHS.fontFiles = PATHS.assetsDir + PATHS.fontFolder;
 
 // Jekyll files locations.
-PATHS.jekyllPostFiles = PATHS.jekyllDir + PATHS.postFolder;
+PATHS.jekyllDraftFiles =
+  PATHS.jekyllDir + PATHS.jekyllCollectionsDir + PATHS.draftsFolder;
+PATHS.jekyllPostFiles =
+  PATHS.jekyllDir + PATHS.jekyllCollectionsDir + PATHS.postFolder;
 PATHS.jekyllCssFiles = PATHS.jekyllAssetsDir + PATHS.stylesFolder;
 PATHS.jekyllJsFiles = PATHS.jekyllAssetsDir + PATHS.scriptFolder;
 PATHS.jekyllImageFiles = PATHS.jekyllAssetsDir + PATHS.imageFolder;
@@ -42,20 +47,21 @@ PATHS.siteImageFiles = PATHS.siteAssetsDir + PATHS.imageFolder;
 PATHS.siteFontFiles = PATHS.siteAssetsDir + PATHS.fontFolder;
 
 // Glob patterns by file type.
-PATHS.dataPattern = '/**.*+(yml|yaml|csv|json)';
+PATHS.dataPattern = '/**/*.yml';
 PATHS.sassPattern = '/**/*.scss';
 PATHS.jsPattern = '/**/*.js';
-PATHS.imagePattern = '/**/*.+(jpg|jpeg|png|svg|gif|webp|tif)';
-PATHS.markdownPattern = '/**/*.+(md|MD|markdown|MARKDOWN)';
+PATHS.imagePattern = '/**/*.svg';
+PATHS.markdownPattern = '/**/*.md';
 PATHS.htmlPattern = '/**/*.html';
 
 // Asset files globs.
-PATHS.dataFilesGlob = PATHS.dataDir + PATHS.dataPattern;
+PATHS.dataFilesGlob = PATHS.dataFolder + PATHS.dataPattern;
 PATHS.sassFilesGlob = PATHS.sassFiles + PATHS.sassPattern;
 PATHS.jsFilesGlob = PATHS.jsFiles + PATHS.jsPattern;
 PATHS.imageFilesGlob = PATHS.imageFiles + PATHS.imagePattern;
 
 // Jekyll files globs.
+PATHS.jekyllDraftFilesGlob = PATHS.jekyllDraftFiles + PATHS.markdownPattern;
 PATHS.jekyllPostFilesGlob = PATHS.jekyllPostFiles + PATHS.markdownPattern;
 PATHS.jekyllHtmlFilesGlob = PATHS.jekyllDir + PATHS.htmlPattern;
 PATHS.jekyllImageFilesGlob = PATHS.jekyllImageFiles + PATHS.imagePattern;

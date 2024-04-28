@@ -248,28 +248,22 @@ gulp.task(
 
     gulp.watch('_config.yml', gulp.series('build:jekyll:watch'));
     // Watch .scss files and pipe changes to browserSync
-    gulp.watch('_assets/styles/**/*.scss', gulp.series('build:styles'));
+    gulp.watch(PATHS.sassFilesGlob, gulp.series('build:styles'));
     // Watch .js files
     // gulp.watch('_assets/js/**/*.js', gulp.series('build:scripts:watch'));
     // Watch image files and pipe changes to browserSync
     // gulp.watch('_assets/img/**/*', gulp.series('build:images'));
     // Watch posts
-    gulp.watch(
-      '_posts/**/*.+(md|markdown|MD)',
-      gulp.series('build:jekyll:watch')
-    );
+    gulp.watch(PATHS.jekyllPostFilesGlob, gulp.series('build:jekyll:watch'));
 
     // Watch drafts if --drafts flag was passed
     if (module.exports.drafts) {
-      gulp.watch(
-        '_drafts/*.+(md|markdown|MD)',
-        gulp.series('build:jekyll:watch')
-      );
+      gulp.watch(PATHS.jekyllDraftFilesGlob, gulp.series('build:jekyll:watch'));
     }
 
     // Watch html and markdown files
     gulp.watch(
-      ['**/*.+(html|md|markdown|MD)', '!_site/**/*.*'],
+      [PATHS.htmlPattern, PATHS.markdownPattern, '!_site/**/*.*'],
       gulp.series('build:jekyll:watch')
     );
 
@@ -277,7 +271,7 @@ gulp.task(
     gulp.watch('feed.xml', gulp.series('build:jekyll:watch'));
 
     // Watch data files
-    gulp.watch(PATHS.dataFilesGlob, gulp.series('build:jekyll:watch'));
+    gulp.watch(PATHS.dataPattern, gulp.series('build:jekyll:watch'));
 
     callback();
   })
