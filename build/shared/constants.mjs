@@ -69,6 +69,4 @@ PATHS.jekyllImageFilesGlob = PATHS.jekyllImageFiles + PATHS.imagePattern;
 // Site files globs.
 PATHS.siteHtmlFilesGlob = PATHS.siteDir + PATHS.htmlPattern;
 
-export default {
-  PATHS,
-};
+export { PATHS };
