@@ -62,8 +62,8 @@ function serve(done) {
 // -----------------------------------------------------------------------------
 
 // Static Server + watching scss/html files.
-gulp.task('serve', ['sass'], () => {
-  serve(done);
+gulp.task('serve', ['sass'], (callback) => {
+  serve(callback);
 
   gulp.watch(PATHS.sassPattern, ['sass']);
   gulp.watch(PATHS.htmlPattern).on('change', reload);
@@ -277,10 +277,7 @@ gulp.task(
     gulp.watch('feed.xml', gulp.series('build:jekyll:watch'));
 
     // Watch data files
-    gulp.watch(
-      '_data/**.*+(yml|yaml|csv|json)',
-      gulp.series('build:jekyll:watch')
-    );
+    gulp.watch(PATHS.dataFilesGlob, gulp.series('build:jekyll:watch'));
 
     callback();
   })

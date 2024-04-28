@@ -9,6 +9,7 @@ const PATHS = {};
 
 // Directory locations.
 PATHS.assetsDir = '_assets/'; // The files Gulp will handle.
+PATHS.dataDir = '_data';
 PATHS.jekyllDir = ''; // The files Jekyll will handle.
 PATHS.jekyllAssetsDir = 'assets/'; // The asset files Jekyll will handle.
 PATHS.siteDir = '_site/'; // The resulting static site.
@@ -41,6 +42,7 @@ PATHS.siteImageFiles = PATHS.siteAssetsDir + PATHS.imageFolder;
 PATHS.siteFontFiles = PATHS.siteAssetsDir + PATHS.fontFolder;
 
 // Glob patterns by file type.
+PATHS.dataPattern = '/**.*+(yml|yaml|csv|json)';
 PATHS.sassPattern = '/**/*.scss';
 PATHS.jsPattern = '/**/*.js';
 PATHS.imagePattern = '/**/*.+(jpg|jpeg|png|svg|gif|webp|tif)';
@@ -48,6 +50,7 @@ PATHS.markdownPattern = '/**/*.+(md|MD|markdown|MARKDOWN)';
 PATHS.htmlPattern = '/**/*.html';
 
 // Asset files globs.
+PATHS.dataFilesGlob = PATHS.dataDir + PATHS.dataPattern;
 PATHS.sassFilesGlob = PATHS.sassFiles + PATHS.sassPattern;
 PATHS.jsFilesGlob = PATHS.jsFiles + PATHS.jsPattern;
 PATHS.imageFilesGlob = PATHS.imageFiles + PATHS.imagePattern;
