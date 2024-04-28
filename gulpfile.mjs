@@ -53,6 +53,7 @@ function serve(done) {
     logFileChanges: true,
     logLevel: 'debug',
     open: true, // Toggle to auto-open page when starting
+    port: 4000, // change port to match default Jekyll
   });
   done();
 }
