@@ -16,7 +16,7 @@ const RubyFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`./bin/rubocop -a ${RubyFiles.join(' ')}`];
+const scripts = [`bundle exec rubocop -a ${RubyFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {
