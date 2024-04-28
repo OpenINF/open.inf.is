@@ -9,6 +9,7 @@
     "pnpm": "9.0.6"
   },
   "exports": {
+    "./build/constants": "./build/shared/constants.mjs",
     "./build/utils": "./build/utils.mjs"
   },
   "homepage": "open.inf.is",
