@@ -41,13 +41,6 @@ defaults:
       layout: default
       locale: en
   - scope:
-      path: _layouts
-      type: pages
-    values:
-      ##
-      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
-      layout: default
-  - scope:
       path: _docs
       type: docs
     values:
