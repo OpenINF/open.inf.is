@@ -32,7 +32,7 @@ const server = browserSync.create();
 // -----------------------------------------------------------------------------
 
 /**
- *
+ * function to properly reload your browser
  * @param {*} done Callback to signal completion.
  */
 function reload(done) {
