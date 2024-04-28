@@ -17,7 +17,7 @@ import { PATHS } from '@openinf/portal/build/constants';
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
 import cssnano from 'cssnano';
-import del from 'del';
+import * as del from 'del';
 import gulp from 'gulp';
 import sass from 'gulp-dart-sass';
 import run from 'gulp-run';
@@ -62,14 +62,6 @@ function serve(done) {
 // Tasks
 // -----------------------------------------------------------------------------
 
-// Static Server + watching scss/html files.
-gulp.task('serve', ['sass'], (callback) => {
-  serve(callback);
-
-  gulp.watch(PATHS.sassPattern, ['sass']);
-  gulp.watch(PATHS.htmlPattern).on('change', reload);
-});
-
 /**
  * Sass task for live injecting into all browsers.
  * Compiles sass into CSS.
@@ -83,6 +75,14 @@ gulp.task('sass', () =>
     .pipe(gulp.dest(PATHS.jekyllCssFiles))
     .pipe(reload({ stream: true }))
 );
+
+// Static Server + watching scss/html files.
+// gulp.task('serve', ['sass'], (callback) => {
+//   serve(callback);
+
+//   gulp.watch(PATHS.sassPattern, ['sass']);
+//   gulp.watch(PATHS.htmlPattern).on('change', reload);
+// });
 
 /**
  * Serve and watch the html files for changes
