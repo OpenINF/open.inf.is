@@ -31,11 +31,19 @@ const server = browserSync.create();
 // Helpers
 // -----------------------------------------------------------------------------
 
+/**
+ *
+ * @param {*} done Callback to signal completion.
+ */
 function reload(done) {
   server.reload();
   done();
 }
 
+/**
+ *
+ * @param {*} done Callback to signal async completion.
+ */
 function serve(done) {
   server.init({
     server: {
@@ -225,7 +233,7 @@ gulp.task(
   gulp.series([
     // 'build:scripts',
     'build:styles',
-    'build:images',
+    // 'build:images',
     // 'build:fonts',
     // 'build:downloads',
     'build:jekyll',
