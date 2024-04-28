@@ -87,7 +87,7 @@ gulp.task('build:styles:main', () => {
     .pipe(gulp.dest(PATHS.jekyllCssFiles))
     .pipe(gulp.dest(PATHS.siteCssFiles))
     .pipe(browserSync.stream())
-    .on('error', gutil.log);
+    .on('error', logger);
 });
 
 // Create and process critical CSS file to be included in head
@@ -104,7 +104,7 @@ gulp.task('build:styles:critical', () => {
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(gulp.dest('_includes'))
     .pipe(browserSync.stream())
-    .on('error', gutil.log);
+    .on('error', logger);
 });
 
 // Build all styles
@@ -122,7 +122,7 @@ gulp.task(
 //     .pipe(uglify())
 //     .pipe(gulp.dest(PATHS.jekyllJsFiles))
 //     .pipe(gulp.dest(PATHS.siteJsFiles))
-//     .on('error', gutil.log);
+//     .on('error', logger);
 // });
 
 // Uglify local JS files and output the result to the appropriate location
@@ -132,7 +132,7 @@ gulp.task(
 //     .pipe(uglify())
 //     .pipe(gulp.dest(PATHS.jekyllJsFiles))
 //     .pipe(gulp.dest(PATHS.siteJsFiles))
-//     .on('error', gutil.log);
+//     .on('error', logger);
 // });
 
 // Build all scripts
@@ -175,7 +175,7 @@ gulp.task('clean:jekyll', (callback) => {
 //   return gulp
 //     .src('.', { allowEmpty: true })
 //     .pipe(run(shellCommand))
-//     .on('error', gutil.log);
+//     .on('error', logger);
 // });
 
 // Run jekyll build command using local config
@@ -183,7 +183,7 @@ gulp.task('build:jekyll:local', () => {
   return gulp
     .src('.', { allowEmpty: true })
     .pipe(run('bundle exec jekyll build'))
-    .on('error', gutil.log);
+    .on('error', logger);
 });
 
 // Special tasks for building and reloading BrowserSync
