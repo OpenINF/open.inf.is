@@ -9,16 +9,27 @@
  * @module {type ES6Module} gulpfile
  */
 
+// -----------------------------------------------------------------------------
+// Requirements
+// -----------------------------------------------------------------------------
+
 import { PATHS } from '@openinf/portal/build/constants';
+import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
+import cssnano from 'cssnano';
+import del from 'del';
 import gulp from 'gulp';
 import sass from 'gulp-dart-sass';
+import run from 'gulp-run';
 import sourcemaps from 'gulp-sourcemaps';
 import logger from 'gulplog';
+import postcss from 'postcss';
 
 const server = browserSync.create();
-// const reload = browserSync.reload;
-// var through     = require("through2");
+
+// -----------------------------------------------------------------------------
+// Helpers
+// -----------------------------------------------------------------------------
 
 function reload(done) {
   server.reload();
@@ -37,6 +48,10 @@ function serve(done) {
   });
   done();
 }
+
+// -----------------------------------------------------------------------------
+// Tasks
+// -----------------------------------------------------------------------------
 
 // Static Server + watching scss/html files.
 gulp.task('serve', ['sass'], () => {

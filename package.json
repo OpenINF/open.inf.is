@@ -34,6 +34,7 @@
     "cross-env": "7.0.3",
     "cross-spawn": "7.0.3",
     "cspell": "8.7.0",
+    "cssnano": "7.0.1",
     "del": "7.1.0",
     "dictionary-en": "4.0.0",
     "dprint": "0.45.1",
