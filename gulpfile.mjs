@@ -190,12 +190,6 @@ gulp.task('build:jekyll', (callback) => {
   callback();
 });
 
-// Delete the entire _site directory
-gulp.task('clean:jekyll', (callback) => {
-  del([PATHS.siteDir]);
-  callback();
-});
-
 // Runs jekyll build command using test config.
 // gulp.task('build:jekyll:test', () => {
 //   const shellCommand =
@@ -218,13 +212,13 @@ gulp.task('build:jekyll:local', () => {
 gulp.task(
   'build:jekyll:watch',
   gulp.series('build:jekyll:local', (callback) => {
-    browserSync.reload();
+    reload();
     callback();
   })
 );
 
 // gulp.task('build:scripts:watch', gulp.series('build:scripts', (callback) => {
-//   browserSync.reload();
+//   reload();
 //   callback();
 // }));
 
@@ -241,7 +235,8 @@ gulp.task(
   ])
 );
 
-// Serve site and watch files
+// 'gulp serve' -- Serve site; open site in browser, watch for changes in source
+// files, and update them when needed.
 gulp.task(
   'serve',
   gulp.series('build', (callback) => {
