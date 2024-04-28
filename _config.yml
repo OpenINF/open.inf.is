@@ -72,9 +72,6 @@ defaults:
       body_classes:
         - hide-butterbar
 
-# To be sure Jekyll "sees" and processes the files inside of a new collection.
-include: ['collections/_pages']
-
 # Exclude from processing.
 exclude:
   - AUTHORS
