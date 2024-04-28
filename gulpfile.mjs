@@ -36,7 +36,7 @@ const server = browserSync.create();
  * @param {*} done Callback to signal completion.
  */
 function reload(done) {
-  server.reload();
+  server.reload({ stream: true });
   done();
 }
 
@@ -66,14 +66,16 @@ function serve(done) {
  * Sass task for live injecting into all browsers.
  * Compiles sass into CSS.
  */
-gulp.task('sass', () =>
-  gulp
-    .src(PATHS.sassPattern)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest(PATHS.jekyllCssFiles))
-    .pipe(reload({ stream: true }))
+gulp.task(
+  'sass',
+  (done) =>
+    gulp
+      .src(`${PATHS.sassFiles}/main.scss`)
+      .pipe(sourcemaps.init())
+      .pipe(sass().on('error', sass.logError))
+      .pipe(sourcemaps.write('./maps'))
+      .pipe(gulp.dest(PATHS.jekyllCssFiles))
+  // .pipe(reload(done))
 );
 
 // Static Server + watching scss/html files.
@@ -102,20 +104,16 @@ gulp.task('sass', () =>
 // Process styles, add vendor-prefixes, minify, then
 // output the file to the appropriate location.
 gulp.task('build:styles:main', () => {
-  return gulp
-    .src(`${PATHS.sassFiles}/main.scss`)
-    .pipe(
-      sass({
-        outputStyle: 'compressed',
-        trace: true,
-        loadPath: [PATHS.sassFiles],
-      }).on('error', sass.logError)
-    )
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(gulp.dest(PATHS.jekyllCssFiles))
-    .pipe(gulp.dest(PATHS.siteCssFiles))
-    .pipe(browserSync.stream())
-    .on('error', logger);
+  return (
+    gulp
+      .src(`${PATHS.sassFiles}/main.scss`)
+      .pipe(sass().on('error', logger.error))
+      // .pipe(postcss([autoprefixer(), cssnano()]))
+      .pipe(gulp.dest(PATHS.jekyllCssFiles))
+      // .pipe(gulp.dest(PATHS.siteCssFiles))
+      // .pipe(browserSync.stream())
+      .on('error', logger)
+  );
 });
 
 // Create and process critical CSS file to be included in head
