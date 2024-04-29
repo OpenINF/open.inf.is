@@ -8,6 +8,7 @@
 const PATHS = {};
 
 // Directory locations.
+PATHS.gulpTasksDir = 'build/tasks/gulp/'; // The individual file modules for Gulp tasks.
 PATHS.assetsDir = '_assets/'; // The files Gulp will handle.
 PATHS.jekyllDir = ''; // The files Jekyll will handle.
 PATHS.jekyllAssetsDir = 'assets/'; // The asset files Jekyll will handle.
