@@ -116,9 +116,6 @@ importers:
       nps:
         specifier: 5.10.0
         version: 5.10.0
-      postcss:
-        specifier: 8.4.38
-        version: 8.4.38
       postcss-html:
         specifier: 1.6.0
         version: 1.6.0

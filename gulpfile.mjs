@@ -20,12 +20,13 @@ import cssnano from 'cssnano';
 import * as del from 'del';
 import gulp from 'gulp';
 import sass from 'gulp-dart-sass';
+import postcss from 'gulp-postcss';
 import run from 'gulp-run';
 import sourcemaps from 'gulp-sourcemaps';
 import logger from 'gulplog';
-import postcss from 'postcss';
 
 const server = browserSync.create();
+const reload = browserSync.reload;
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -35,10 +36,10 @@ const server = browserSync.create();
  * function to properly reload your browser
  * @param {*} done Callback to signal completion.
  */
-function reload(done) {
-  server.reload(/*{ stream: true }*/);
-  done();
-}
+// function reload(done) {
+//   server.reload(/*{ stream: true }*/);
+//   done();
+// }
 
 /**
  *
@@ -72,7 +73,13 @@ gulp.task(
     gulp
       .src(`${PATHS.sassFiles}/main.scss`)
       .pipe(sourcemaps.init())
-      .pipe(sass().on('error', sass.logError))
+      .pipe(
+        sass({
+          precision: 10,
+          onError: browserSync.notify,
+        }).on('error', sass.logError)
+      )
+      .pipe(postcss([autoprefixer(), cssnano()]))
       .pipe(sourcemaps.write('./maps'))
       .pipe(gulp.dest(PATHS.jekyllCssFiles))
   // .pipe(reload(done))
@@ -257,7 +264,7 @@ gulp.task(
 
     // Watch html and markdown files
     // gulp.watch(
-    //   [PATHS.htmlPattern, PATHS.markdownPattern, '!_site/**/*.*'],
+    //   [PATHS.htmlPattern, PATHS.markdownPattern, `!${PATHS.siteDir}`],
     //   gulp.series('build:jekyll:watch')
     // );
 
