@@ -1,5 +1,5 @@
 /**
- * @file Main SCSS task; convert SCSS source assets into CSS:
+ * @file Main SCSS processing task; convert SCSS source assets into CSS:
  * - supports PostCSS
  * - handles source maps
  * - compatible/functional Gulp task
@@ -30,9 +30,9 @@ export function scssify(done) {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('./maps'))
-    // For dev, outputs the non-minified version (into ./assets/styles).
+    // For dev: outputs the non-minified version (into ./assets/styles).
     .pipe(dest(PATHS.jekyllCssFiles))
-    // For prod, optimizes, renames to foo.min.css (into ./_site/assets/styles).
+    // For prod: optimizes, renames to foo.min.css (into ./_site/assets/styles).
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(PATHS.siteCssFiles));
