@@ -35,16 +35,22 @@ const reload = browserSync.reload;
 
 /**
  * function to properly reload your browser
- * @param {*} done Callback to signal completion.
+ * @param {function} done The callback function to call when the task is complete or an error occurs.
+ *                        The callback should have the following signature:
+ *                        function(err) { ... }
+ *                          - err {Error|null} - The error object if an error occurred, null otherwise.
  */
 // function reload(done) {
 //   server.reload(/*{ stream: true }*/);
-//   done();
+//   done(null);
 // }
 
 /**
  *
- * @param {*} done Callback to signal async completion.
+ * @param {function} done The callback function to call when the task is complete or an error occurs.
+ *                        The callback should have the following signature:
+ *                        function(err) { ... }
+ *                          - err {Error|null} - The error object if an error occurred, null otherwise.
  */
 function serve(done) {
   server.init({
@@ -57,7 +63,7 @@ function serve(done) {
     open: true, // Toggle to auto-open page when starting
     port: 4000, // change port to match default Jekyll
   });
-  done();
+  done(null);
 }
 
 // -----------------------------------------------------------------------------
@@ -68,30 +74,28 @@ function serve(done) {
  * Sass task for live injecting into all browsers.
  * Compiles sass into CSS.
  */
-gulp.task(
-  'build:styles:main',
-  (done) =>
-    gulp
-      .src(`${PATHS.sassFiles}/main.scss`)
-      .pipe(sourcemaps.init())
-      .pipe(
-        sass({
-          precision: 10,
-          onError: browserSync.notify,
-        }).on('error', sass.logError)
-      )
-      .pipe(postcss([autoprefixer(), cssnano()]))
-      .pipe(sourcemaps.write('./maps'))
-      .pipe(gulp.dest(PATHS.jekyllCssFiles))
-      .pipe(gulp.dest(PATHS.siteCssFiles))
-      .pipe(browserSync.stream())
-  // .on('error', logger)
-  // .pipe(reload(done))
-);
+gulp.task('build:styles:main', (done) => {
+  gulp
+    .src(`${PATHS.sassFiles}/main.scss`)
+    .pipe(sourcemaps.init())
+    .pipe(
+      sass({
+        precision: 10,
+        onError: browserSync.notify,
+      }).on('error', sass.logError)
+    )
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest(PATHS.jekyllCssFiles))
+    .pipe(gulp.dest(PATHS.siteCssFiles))
+    .pipe(browserSync.stream());
+
+  done(null);
+});
 
 // Static Server + watching scss/html files.
-// gulp.task('serve', ['sass'], (callback) => {
-//   serve(callback);
+// gulp.task('serve', ['sass'], (done) => {
+//   serve(done);
 
 //   gulp.watch(PATHS.sassPattern, ['sass']);
 //   gulp.watch(PATHS.htmlPattern).on('change', reload);
@@ -178,10 +182,10 @@ gulp.task(
 // });
 
 // Run jekyll build command.
-gulp.task('build:jekyll', (callback) => {
+gulp.task('build:jekyll', (done) => {
   const shellCommand = 'bundle exec jekyll build --config _config.yml';
   run(shellCommand);
-  callback();
+  done(null);
 });
 
 // Runs jekyll build command using test config.
@@ -205,15 +209,15 @@ gulp.task('build:jekyll:local', () => {
 // Special tasks for building and reloading BrowserSync
 gulp.task(
   'build:jekyll:watch',
-  gulp.series('build:jekyll:local', (callback) => {
+  gulp.series('build:jekyll:local', (done) => {
     reload();
-    callback();
+    done(null);
   })
 );
 
-// gulp.task('build:scripts:watch', gulp.series('build:scripts', (callback) => {
+// gulp.task('build:scripts:watch', gulp.series('build:scripts', (done) => {
 //   reload();
-//   callback();
+//   done(null);
 // }));
 
 // Build site
@@ -233,8 +237,8 @@ gulp.task(
 // files, and update them when needed.
 gulp.task(
   'serve',
-  gulp.series('build', (callback) => {
-    serve(callback);
+  gulp.series('build', (done) => {
+    serve(done);
 
     gulp.watch('_config.yml', gulp.series('build:jekyll:watch'));
     // Watch .scss files and pipe changes to browserSync
@@ -263,42 +267,42 @@ gulp.task(
     // Watch data files
     // gulp.watch(PATHS.dataPattern, gulp.series('build:jekyll:watch'));
 
-    callback();
+    done(null);
   })
 );
 
 // Delete CSS
-gulp.task('clean:styles', (callback) => {
+gulp.task('clean:styles', (done) => {
   del([
     `${PATHS.jekyllCssFiles}main.css`,
     `${PATHS.siteCssFiles}main.css`,
     '_includes/critical.css',
   ]);
-  callback();
+  done(null);
 });
 
 // // Delete processed JS
-// gulp.task('clean:scripts', (callback) => {
+// gulp.task('clean:scripts', (done) => {
 //   del([`${PATHS.jekyllJsFiles}main.js', `$PATHS.siteJsFiles}main.js`]);
-//   callback();
+//   done(null);
 // });
 
 // // Delete processed images
-// gulp.task('clean:images', (callback) => {
+// gulp.task('clean:images', (done) => {
 //   del([PATHS.jekyllImageFiles, PATHS.siteImageFiles]);
-//   callback();
+//   done(null);
 // });
 
 // // Delete processed font files
-// gulp.task('clean:fonts', (callback) => {
+// gulp.task('clean:fonts', (done) => {
 //   del([PATHS.jekyllFontFiles, PATHS.siteFontFiles]);
-//   callback();
+//   done(null);
 // });
 
 // Delete the entire _site directory
-gulp.task('clean:jekyll', (callback) => {
+gulp.task('clean:jekyll', (done) => {
   del([PATHS.siteDir]);
-  callback();
+  done(null);
 });
 
 // Deletes _site directory and processed assets
