@@ -14,7 +14,7 @@ import { PATHS } from '@openinf/portal/build/constants';
 import { glob } from '@openinf/portal/build/utils';
 import gulp from 'gulp';
 
-const tasks = await glob([`${PATHS.gulpTasksDir}*.mjs`]);
+const tasks = await glob([`./${PATHS.gulpTasksDir}*.mjs`]);
 
 for (const task of tasks) {
   const taskName = pathBasename(task, '.mjs');
