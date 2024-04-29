@@ -17,3 +17,6 @@ _site/
 
 # Ignore secrets.
 .env
+
+# Ignore generated build products.
+/assets/
