@@ -17,6 +17,7 @@ import { PATHS } from '@openinf/portal/build/constants';
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
 import cssnano from 'cssnano';
+// skipcq: JS-C1003 - del does not expose itself as an ES Module.
 import * as del from 'del';
 import gulp from 'gulp';
 import sass from 'gulp-dart-sass';
