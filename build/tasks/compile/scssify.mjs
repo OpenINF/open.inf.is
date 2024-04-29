@@ -1,8 +1,11 @@
 /**
- * @file Gulp task to compiles main SCSS into CSS.
+ * @file Main SCSS task; convert SCSS source assets into CSS:
+ * - supports PostCSS
+ * - handles source maps
+ * - compatible/functional Gulp task
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/gulp/build-main-css
+ * @module {type ES6Module} build/tasks/compile/scssify
  */
 
 // -----------------------------------------------------------------------------
@@ -24,12 +27,7 @@ import sourcemaps from 'gulp-sourcemaps';
 export function scssify(done) {
   src(`${PATHS.sassFiles}/main.scss`)
     .pipe(sourcemaps.init())
-    .pipe(
-      sass({
-        precision: 10,
-        onError: browserSync.notify,
-      }).on('error', sass.logError)
-    )
+    .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write('./maps'))
     .pipe(dest(PATHS.jekyllCssFiles))
