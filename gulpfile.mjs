@@ -9,16 +9,16 @@
  * @module {type ES6Module} gulpfile
  */
 
-import { basename as nodePathBasename } from 'node:path';
+import { basename as pathBasename, join as pathJoin } from 'node:path';
 import { glob } from '@openinf/portal/build/utils';
 import gulp from 'gulp';
 
-const tasksPath = path.join(import.meta.dirname, 'build', 'tasks', 'gulp');
+const tasksPath = pathJoin(import.meta.dirname, 'build', 'tasks', 'gulp');
 
 const tasks = await glob([`${tasksPath}/*.mjs`]);
 
 for (const task of tasks) {
-  const taskName = nodePathBasename(task, '.mjs');
+  const taskName = pathBasename(task, '.mjs');
   const taskModule = await import(task);
   gulp.task(taskName, taskModule.default);
 }
