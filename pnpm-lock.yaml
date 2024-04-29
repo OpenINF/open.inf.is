@@ -71,6 +71,9 @@ importers:
       gulp-postcss:
         specifier: 10.0.0
         version: 10.0.0(postcss@8.4.38)
+      gulp-rename:
+        specifier: 2.0.0
+        version: 2.0.0
       gulp-sourcemaps:
         specifier: 3.0.0
         version: 3.0.0
@@ -104,9 +107,6 @@ importers:
       nps:
         specifier: 5.10.0
         version: 5.10.0
-      postcss-html:
-        specifier: 1.6.0
-        version: 1.6.0
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -1596,6 +1596,10 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
+  gulp-rename@2.0.0:
+    resolution: {integrity: sha512-97Vba4KBzbYmR5VBs9mWmK+HwIf5mj+/zioxfZhOKeXtx5ZjBk57KFlePf5nxq9QsTtFl0ejnHE3zTC9MHXqyQ==}
+    engines: {node: '>=4'}
+
   gulp-sourcemaps@3.0.0:
     resolution: {integrity: sha512-RqvUckJkuYqy4VaIH60RMal4ZtG0IbQ6PXMNkNsshEGJ9cldUPRb/YCgboYae+CLAs1HQNb4ADTKCx65HInquQ==}
     engines: {node: '>= 6'}
@@ -1672,9 +1676,6 @@ packages:
 
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
-
-  htmlparser2@8.0.2:
-    resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -1847,9 +1848,6 @@ packages:
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-
-  js-tokens@8.0.3:
-    resolution: {integrity: sha512-UfJMcSJc+SEXEl9lH/VLHSZbThQyLpw1vLO1Lb+j4RWDvG3N2f7yj3PVQA3cmkTBNldJ9eFnM+xEXxHIXrYiJw==}
 
   js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -2551,10 +2549,6 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
-  postcss-html@1.6.0:
-    resolution: {integrity: sha512-OWgQ9/Pe23MnNJC0PL4uZp8k0EDaUvqpJFSiwFxOLClAhmD7UEisyhO3x5hVsD4xFrjReVTXydlrMes45dJ71w==}
-    engines: {node: ^12 || >=14}
-
   postcss-load-config@5.0.3:
     resolution: {integrity: sha512-90pBBI5apUVruIEdCxZic93Wm+i9fTrp7TXbgdUCH+/L+2WnfpITSpq5dFU/IPvbv7aNiMlQISpUkAm3fEcvgQ==}
     engines: {node: '>= 18'}
@@ -2680,12 +2674,6 @@ packages:
 
   postcss-resolve-nested-selector@0.1.1:
     resolution: {integrity: sha512-HvExULSwLqHLgUy1rl3ANIqCsvMS0WHss2UOsXhXnQaZ9VCc2oBvIpXrl00IUFT5ZDITME0o6oiXeiHr2SAIfw==}
-
-  postcss-safe-parser@6.0.0:
-    resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.3.3
 
   postcss-safe-parser@7.0.0:
     resolution: {integrity: sha512-ovehqRNVCpuFzbXoTb4qLtyzK3xn3t/CUBxOs8LsnQjQrShaB4lKiHoVqY8ANaC0hBMHq5QVWk77rwGklFUDrg==}
@@ -5157,6 +5145,8 @@ snapshots:
     transitivePeerDependencies:
       - jiti
 
+  gulp-rename@2.0.0: {}
+
   gulp-sourcemaps@3.0.0:
     dependencies:
       '@gulp-sourcemaps/identity-map': 2.0.1
@@ -5286,13 +5276,6 @@ snapshots:
 
   html-void-elements@3.0.0: {}
 
-  htmlparser2@8.0.2:
-    dependencies:
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
-      domutils: 3.1.0
-      entities: 4.5.0
-
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
@@ -5419,8 +5402,6 @@ snapshots:
       '@pkgjs/parseargs': 0.11.0
 
   js-tokens@4.0.0: {}
-
-  js-tokens@8.0.3: {}
 
   js-yaml@3.14.1:
     dependencies:
@@ -6433,13 +6414,6 @@ snapshots:
     dependencies:
       postcss: 8.4.38
 
-  postcss-html@1.6.0:
-    dependencies:
-      htmlparser2: 8.0.2
-      js-tokens: 8.0.3
-      postcss: 8.4.38
-      postcss-safe-parser: 6.0.0(postcss@8.4.38)
-
   postcss-load-config@5.0.3(postcss@8.4.38):
     dependencies:
       lilconfig: 3.1.1
@@ -6550,10 +6524,6 @@ snapshots:
       postcss-value-parser: 4.2.0
 
   postcss-resolve-nested-selector@0.1.1: {}
-
-  postcss-safe-parser@6.0.0(postcss@8.4.38):
-    dependencies:
-      postcss: 8.4.38
 
   postcss-safe-parser@7.0.0(postcss@8.4.38):
     dependencies:

@@ -18,6 +18,7 @@ import cssnano from 'cssnano';
 import { dest, src } from 'gulp';
 import sass from 'gulp-dart-sass';
 import postcss from 'gulp-postcss';
+import rename from 'gulp-rename';
 import sourcemaps from 'gulp-sourcemaps';
 
 // -----------------------------------------------------------------------------
@@ -28,9 +29,12 @@ export function scssify(done) {
   src(`${PATHS.sassFiles}/main.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write('./maps'))
+    // For dev, outputs the non-minified version (into ./assets/styles).
     .pipe(dest(PATHS.jekyllCssFiles))
+    // For prod, optimizes, renames to foo.min.css (into ./_site/assets/styles).
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(PATHS.siteCssFiles));
 
   done(null);
