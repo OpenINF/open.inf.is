@@ -2,7 +2,7 @@
  * @file Main SCSS processing task; convert SCSS source assets into CSS:
  * - supports PostCSS
  * - handles source maps
- * - compatible/functional Gulp task
+ * - intended potentially compatible/close parity functioning Gulp task.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @module {type ES6Module} build/tasks/compile/scssify
@@ -25,7 +25,7 @@ import sourcemaps from 'gulp-sourcemaps';
 // Task
 // -----------------------------------------------------------------------------
 
-export const scssify = ((done) => {
+export const scssify = (() => {
   src(`${PATHS.sassFiles}/main.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -36,8 +36,6 @@ export const scssify = ((done) => {
     .pipe(sourcemaps.write('./maps'))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(PATHS.siteCssFiles));
-
-  done(null);
-})(() => {});
+})();
 
 export default scssify;
