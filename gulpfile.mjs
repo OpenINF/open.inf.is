@@ -82,6 +82,9 @@ gulp.task(
       .pipe(postcss([autoprefixer(), cssnano()]))
       .pipe(sourcemaps.write('./maps'))
       .pipe(gulp.dest(PATHS.jekyllCssFiles))
+      .pipe(gulp.dest(PATHS.siteCssFiles))
+      .pipe(browserSync.stream())
+  // .on('error', logger)
   // .pipe(reload(done))
 );
 
@@ -107,21 +110,6 @@ gulp.task(
 
 // const dev = gulp.series(clean, scripts, serve, watch);
 // export default dev;
-
-// Process styles, add vendor-prefixes, minify, then
-// output the file to the appropriate location.
-// gulp.task('build:styles:main', () => {
-//   return (
-//     gulp
-//       .src(`${PATHS.sassFiles}/main.scss`)
-//       .pipe(sass().on('error', logger.error))
-//       // .pipe(postcss([autoprefixer(), cssnano()]))
-//       .pipe(gulp.dest(PATHS.jekyllCssFiles))
-//       // .pipe(gulp.dest(PATHS.siteCssFiles))
-//       // .pipe(browserSync.stream())
-//       .on('error', logger)
-//   );
-// });
 
 // Create and process critical CSS file to be included in head
 // gulp.task('build:styles:critical', () => {
@@ -217,7 +205,7 @@ gulp.task('build:jekyll:local', () => {
 gulp.task(
   'build:jekyll:watch',
   gulp.series('build:jekyll:local', (callback) => {
-    // reload();
+    reload();
     callback();
   })
 );
@@ -249,7 +237,7 @@ gulp.task(
 
     gulp.watch('_config.yml', gulp.series('build:jekyll:watch'));
     // Watch .scss files and pipe changes to browserSync
-    gulp.watch(PATHS.sassFilesGlob, gulp.series('build:styles'));
+    gulp.watch(PATHS.sassFilesGlob, gulp.series('build:styles'), reload());
     // Watch .js files
     // gulp.watch('_assets/js/**/*.js', gulp.series('build:scripts:watch'));
     // Watch image files and pipe changes to browserSync
