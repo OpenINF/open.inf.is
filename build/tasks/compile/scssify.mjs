@@ -25,19 +25,19 @@ import sourcemaps from 'gulp-sourcemaps';
 // Task
 // -----------------------------------------------------------------------------
 
-export function scssify(done) {
+export const scssify = ((done) => {
   src(`${PATHS.sassFiles}/main.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('./maps'))
     // For dev: outputs the non-minified version (into ./assets/styles).
     .pipe(dest(PATHS.jekyllCssFiles))
     // For prod: optimizes, renames to foo.min.css (into ./_site/assets/styles).
     .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write('./maps'))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(PATHS.siteCssFiles));
 
   done(null);
-}
+})(() => {});
 
 export default scssify;
